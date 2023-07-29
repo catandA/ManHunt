@@ -18,7 +18,7 @@ public class Reload extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "reload config files";
+        return "重载配置文件";
     }
 
     @Override
@@ -40,12 +40,12 @@ public class Reload extends SubCommand {
     @Override
     public void perform(Player p, String[] args) {
         if (!p.isOp()) {
-            p.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "I´m sorry, but you don´t have permission to perform this command");
+            p.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "你没权限用");
             return;
         }
         Config.relodConfig();
-        p.sendMessage(ManHuntPlugin.getprefix() + "Config reloaded");
-        Bukkit.getLogger().info(ManHuntPlugin.getprefix() + ChatColor.GRAY + "Config was reloaded.");
+        p.sendMessage(ManHuntPlugin.getprefix() + "配置已重载");
+        Bukkit.getLogger().info(ManHuntPlugin.getprefix() + ChatColor.GRAY + "配置已重载");
     }
 }
 

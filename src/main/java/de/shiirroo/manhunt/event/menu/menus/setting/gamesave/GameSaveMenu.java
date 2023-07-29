@@ -51,18 +51,19 @@ public class GameSaveMenu extends Menu {
 
     @Override
     public void handleMenuClickEvent(InventoryClickEvent e) throws MenuManagerNotSetupException, MenuManagerException {
+        //如果打开的人是OP
         if (e.getWhoClicked().isOp()) {
             if (ManHuntPlugin.getGameData().getGameStatus().getAutoSave().saveExists() && Objects.equals(e.getCurrentItem(), SaveGameItem(ManHuntPlugin.getGameData().getGameStatus().getAutoSave()))) {
-                MenuManager.getMenu(LoadSaveMenu.class, uuid).setName("Load AutoSave").setBack(hasBack).open();
+                MenuManager.getMenu(LoadSaveMenu.class, uuid).setName("从自动保存加载").setBack(hasBack).open();
             } else if (!ManHuntPlugin.getGameData().getGameStatus().getAutoSave().saveExists() && Objects.equals(e.getCurrentItem(), makeSaveGameItem(ManHuntPlugin.getGameData().getGameStatus().getAutoSave()))) { //&& StartGame.bossBarGameStart != null && StartGame.bossBarGameStart.isRunning()){
-                MenuManager.getMenu(LoadSaveMenu.class, uuid).setName("Save AutoSave").setBack(hasBack).open();
+                MenuManager.getMenu(LoadSaveMenu.class, uuid).setName("保存到自动保存").setBack(hasBack).open();
             } else {
                 for (SaveGame savegame : WorldMenu.gameList) {
                     if (savegame.saveExists() && Objects.equals(e.getCurrentItem(), SaveGameItem(savegame))) {
-                        MenuManager.getMenu(LoadSaveMenu.class, uuid).setName("Load " + savegame.getSaveName()).setBack(hasBack).open();
+                        MenuManager.getMenu(LoadSaveMenu.class, uuid).setName("加载" + savegame.getSaveName()).setBack(hasBack).open();
                         break;
                     } else if (!savegame.saveExists() && Objects.equals(e.getCurrentItem(), makeSaveGameItem(savegame))) {//&& StartGame.bossBarGameStart != null && StartGame.bossBarGameStart.isRunning()){
-                        MenuManager.getMenu(LoadSaveMenu.class, uuid).setName("Save " + savegame.getSaveName()).setBack(hasBack).open();
+                        MenuManager.getMenu(LoadSaveMenu.class, uuid).setName("保存" + savegame.getSaveName()).setBack(hasBack).open();
                         break;
                     }
                 }
@@ -111,11 +112,11 @@ public class GameSaveMenu extends Menu {
         ItemStack saveGameIsLoadingItem = new ItemStack(Material.CLOCK);
         ItemMeta im = saveGameIsLoadingItem.getItemMeta();
         if (saveGame.getSaveSlot() == 0) {
-            im.setDisplayName(ChatColor.GOLD + "-- AutoSave --");
+            im.setDisplayName(ChatColor.GOLD + "-- 自动保存 --");
         } else {
-            im.setDisplayName(ChatColor.GOLD + "-- Save " + saveGame.getSaveSlot() + " --");
+            im.setDisplayName(ChatColor.GOLD + "-- 保存 " + saveGame.getSaveSlot() + " --");
         }
-        List<String> listLore = new ArrayList<>(Arrays.asList("", ChatColor.BLUE + "is on Loading..: "));
+        List<String> listLore = new ArrayList<>(Arrays.asList("", ChatColor.BLUE + "正在加载..: "));
         im.setLore(listLore);
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         saveGameIsLoadingItem.setItemMeta(im);
@@ -131,20 +132,20 @@ public class GameSaveMenu extends Menu {
         ItemStack GroupMenuGUI = new ItemStack(Material.WRITTEN_BOOK);
         ItemMeta im = GroupMenuGUI.getItemMeta();
         if (saveGame.getSaveSlot() == 0) {
-            im.setDisplayName(ChatColor.GRAY + "----- " + ChatColor.GREEN + "AutoSave" + ChatColor.GRAY + " -----");
+            im.setDisplayName(ChatColor.GRAY + "----- " + ChatColor.GREEN + "自动保存" + ChatColor.GRAY + " -----");
         } else {
-            im.setDisplayName(ChatColor.GRAY + "----- " + ChatColor.GREEN + "Save-" + saveGame.getSaveSlot() + ChatColor.GRAY + " -----");
+            im.setDisplayName(ChatColor.GRAY + "----- " + ChatColor.GREEN + "保存-" + saveGame.getSaveSlot() + ChatColor.GRAY + " -----");
         }
         List<String> listLore = new ArrayList<>(List.of(""));
         GameData gameData = saveGame.getGameSaveData();
         if (gameData.getGameStatus().isGameRunning()) {
             listLore.add(ChatColor.YELLOW + "➢ " + ChatColor.GOLD + "ID : " + ChatColor.GREEN + gameData.getId().getMostSignificantBits());
-            listLore.add(ChatColor.YELLOW + "➢ " + ChatColor.GOLD + "Game-Time : " + Events.getTimeString(false, GameTimes.getStartTime(gameData.getGameStatus().getGameStartTime(), gameData.getGamePause().getPauseList(), gameData.getGamePause().getUnPauseList())));
-            listLore.add(ChatColor.YELLOW + "➢ " + ChatColor.GOLD + "Used pause : " + ChatColor.GREEN + gameData.getGamePause().getUnPauseList().size());
-            listLore.add(ChatColor.YELLOW + "➢ " + ChatColor.GOLD + "Living Players : " + ChatColor.GREEN + gameData.getGameStatus().getLivePlayerList().size() + ChatColor.GRAY + " | " + ChatColor.GREEN + gameData.getGameStatus().getStartPlayerList().size());
+            listLore.add(ChatColor.YELLOW + "➢ " + ChatColor.GOLD + "游戏时间 : " + Events.getTimeString(false, GameTimes.getStartTime(gameData.getGameStatus().getGameStartTime(), gameData.getGamePause().getPauseList(), gameData.getGamePause().getUnPauseList())));
+            listLore.add(ChatColor.YELLOW + "➢ " + ChatColor.GOLD + "暂停次数 : " + ChatColor.GREEN + gameData.getGamePause().getUnPauseList().size());
+            listLore.add(ChatColor.YELLOW + "➢ " + ChatColor.GOLD + "存活玩家 : " + ChatColor.GREEN + gameData.getGameStatus().getLivePlayerList().size() + ChatColor.GRAY + " | " + ChatColor.GREEN + gameData.getGameStatus().getStartPlayerList().size());
 
         }
-        listLore.addAll(Arrays.asList("", ChatColor.YELLOW + "● Created on: " + ChatColor.GREEN + saveGame.getDateString()));
+        listLore.addAll(Arrays.asList("", ChatColor.YELLOW + "● 创建于: " + ChatColor.GREEN + saveGame.getDateString()));
         im.setLore(listLore);
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         GroupMenuGUI.setItemMeta(im);
@@ -155,12 +156,12 @@ public class GameSaveMenu extends Menu {
         ItemStack GroupMenuGUI = new ItemStack(Material.WRITABLE_BOOK);
         ItemMeta im = GroupMenuGUI.getItemMeta();
         if (saveGame.getSaveSlot() == 0) {
-            im.setDisplayName(ChatColor.GRAY + "----- " + ChatColor.GREEN + "AutoSave" + ChatColor.GRAY + " -----");
+            im.setDisplayName(ChatColor.GRAY + "----- " + ChatColor.GREEN + "自动保存" + ChatColor.GRAY + " -----");
         } else {
-            im.setDisplayName(ChatColor.GRAY + "----- " + ChatColor.GREEN + "Save-" + saveGame.getSaveSlot() + ChatColor.GRAY + " -----");
+            im.setDisplayName(ChatColor.GRAY + "----- " + ChatColor.GREEN + "保存-" + saveGame.getSaveSlot() + ChatColor.GRAY + " -----");
         }
         if(!ManHuntPlugin.getGameData().getGameStatus().isGameRunning()){
-            im.setLore(List.of("", ChatColor.RED  + "Game can only be ",ChatColor.RED  +"saved during a game"));
+            im.setLore(List.of("", ChatColor.RED  + "只能在",ChatColor.RED  +"游戏期间保存"));
         }
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         GroupMenuGUI.setItemMeta(im);

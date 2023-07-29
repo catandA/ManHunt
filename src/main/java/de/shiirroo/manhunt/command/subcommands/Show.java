@@ -20,12 +20,12 @@ public class Show extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Show Players in Group " + new ArrayList<>(Arrays.asList(ManHuntRole.values()));
+        return "显示队伍中的玩家" + new ArrayList<>(Arrays.asList(ManHuntRole.values()));
     }
 
     @Override
     public String getSyntax() {
-        return "/manhunt show or show [Groupname]";
+        return "/manhunt show 或者 show [队名]";
     }
 
     @Override
@@ -78,7 +78,7 @@ public class Show extends SubCommand {
 
             player.sendMessage(ManHuntPlugin.getprefix() + ChatColor.GOLD + manHuntRole + ChatColor.GRAY + " [" + ChatColor.GREEN + groupplayers.size() + ChatColor.GRAY + "] | " + ChatColor.GRAY + players);
         } else {
-            player.sendMessage(ManHuntPlugin.getprefix() + ChatColor.GOLD + manHuntRole + ChatColor.GRAY + " [" + ChatColor.GREEN + 0 + ChatColor.GRAY + "] | " + ChatColor.GRAY + "Empty");
+            player.sendMessage(ManHuntPlugin.getprefix() + ChatColor.GOLD + manHuntRole + ChatColor.GRAY + " [" + ChatColor.GREEN + 0 + ChatColor.GRAY + "] | " + ChatColor.GRAY + "空无一人");
         }
 
     }

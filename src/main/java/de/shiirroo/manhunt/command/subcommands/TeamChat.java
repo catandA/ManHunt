@@ -19,12 +19,12 @@ public class TeamChat extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Switch chat to TeamChat or send message in TeamChat";
+        return "将聊天切换到群聊或在群聊中发送消息";
     }
 
     @Override
     public String getSyntax() {
-        return "/manhunt teamchat or teamchat [Message]";
+        return "/manhunt teamchat 或者 teamchat [消息]";
     }
 
     @Override
@@ -41,10 +41,10 @@ public class TeamChat extends SubCommand {
     public void perform(Player player, String[] args) {
         if (args.length == 1) {
             if (leaveChat(player)) {
-                player.sendMessage(ManHuntPlugin.getprefix() + "You have left the team chat");
+                player.sendMessage(ManHuntPlugin.getprefix() + "你离开了队伍聊天");
             } else {
                 ManHuntPlugin.getGameData().getGamePlayer().getTeamchat().add(player.getUniqueId());
-                player.sendMessage(ManHuntPlugin.getprefix() + "You're joining the team chat");
+                player.sendMessage(ManHuntPlugin.getprefix() + "你加入了队伍聊天");
             }
         } else if (args.length > 1 && args[0].equalsIgnoreCase("Teamchat")) {
                 String displayname = player.getDisplayName();
@@ -68,7 +68,7 @@ public class TeamChat extends SubCommand {
                     if(!ManHuntPlugin.getGameData().getPlayerData().getPlayerRoleByUUID(player.getUniqueId()).equals(ManHuntRole.Unassigned)) {
                         onAsyncPlayerChatEvent.sendTeamChatMessage(player, displayname, message);
                     } else {
-                        player.sendMessage(ManHuntPlugin.getprefix() + "You need a group to send a message in TeamChat.");
+                        player.sendMessage(ManHuntPlugin.getprefix() + "您需要一个队伍才能在队伍聊天中发送消息");
                     }
             }
         }

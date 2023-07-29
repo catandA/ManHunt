@@ -98,8 +98,8 @@ public class SettingsMenu extends Menu implements Serializable {
         ItemStack GroupMenuGUI = new ItemStack(Material.COMPARATOR);
         ItemMeta im = GroupMenuGUI.getItemMeta();
         im.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Man" + ChatColor.RED + ChatColor.BOLD + "Hunt" + ChatColor.DARK_GRAY + ChatColor.BOLD + " Configuration");
-        if(!getPlayer().isOp()) im.setLore(List.of("", ChatColor.GOLD + "➤ "  + ChatColor.GRAY + "Viewing Mode"));
-        else im.setLore(List.of("", ChatColor.GOLD + "➤ "  + ChatColor.GREEN + "Edit Mode"));
+        if(!getPlayer().isOp()) im.setLore(List.of("", ChatColor.GOLD + "➤ "  + ChatColor.GRAY + "浏览模式"));
+        else im.setLore(List.of("", ChatColor.GOLD + "➤ "  + ChatColor.GREEN + "编辑模式"));
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         GroupMenuGUI.setItemMeta(im);
         return GroupMenuGUI;
@@ -108,7 +108,7 @@ public class SettingsMenu extends Menu implements Serializable {
     private ItemStack PlayerSetting() {
         ItemStack playHead = Utilis.getPlayHead();
         SkullMeta im = (SkullMeta) playHead.getItemMeta();
-        im.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "User Config");
+        im.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "用户配置");
         im.setOwner(Objects.requireNonNull(Bukkit.getPlayer(uuid)).getName());
         playHead.setItemMeta(im);
         return playHead;
@@ -117,9 +117,9 @@ public class SettingsMenu extends Menu implements Serializable {
     private ItemStack GameMode() {
         ItemStack GroupMenuGUI = new ItemStack(Material.WRITABLE_BOOK);
         ItemMeta im = GroupMenuGUI.getItemMeta();
-        im.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "Game Mode");
-        if(!getPlayer().isOp()) im.setLore(List.of("", ChatColor.GOLD + "➤ "  + ChatColor.GRAY + "Viewing Mode"));
-        else im.setLore(List.of("", ChatColor.GOLD + "➤ "  + ChatColor.GREEN + "Edit Mode"));
+        im.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "游戏模式");
+        if(!getPlayer().isOp()) im.setLore(List.of("", ChatColor.GOLD + "➤ "  + ChatColor.GRAY + "浏览模式"));
+        else im.setLore(List.of("", ChatColor.GOLD + "➤ "  + ChatColor.GREEN + "编辑模式"));
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         GroupMenuGUI.setItemMeta(im);
         return GroupMenuGUI;

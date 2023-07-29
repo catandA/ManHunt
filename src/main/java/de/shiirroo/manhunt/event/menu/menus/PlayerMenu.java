@@ -89,7 +89,7 @@ public class PlayerMenu extends Menu {
             if (!ManHuntPlugin.getGameData().getGameStatus().isGame() && Ready.ready != null && !Ready.ready.getbossBarCreator().isRunning() && !Ready.ready.hasPlayerVote(player))
                 SelectGroupMenu.put(uuid, MenuManager.getMenu(SelectGroupMenu.class, player.getUniqueId()).open());
         } else if (checkSelectGroup(itemStack, StartGame()) && player.isOp()) {
-            MenuManager.getMenu(ConfirmationMenu.class, player.getUniqueId()).setName("Start Game?").open();
+            MenuManager.getMenu(ConfirmationMenu.class, player.getUniqueId()).setName("开始游戏？").open();
         } else if (checkSelectGroup(itemStack, World()) && player.isOp() && !ManHuntPlugin.getGameData().getGameStatus().isGame() && Ready.ready != null) {
             MenuManager.getMenu(WorldMenu.class, player.getUniqueId()).open();
         } else if (checkSelectGroup(itemStack, SettingGame())) {
@@ -139,7 +139,7 @@ public class PlayerMenu extends Menu {
     private ItemStack SelectGroup() {
         ItemStack GroupMenuGUI = new ItemStack(Material.BOOK);
         ItemMeta im = GroupMenuGUI.getItemMeta();
-        im.setDisplayName(ChatColor.GOLD + "Select Group");
+        im.setDisplayName(ChatColor.GOLD + "选队伍");
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         GroupMenuGUI.setItemMeta(im);
         return GroupMenuGUI;
@@ -148,7 +148,7 @@ public class PlayerMenu extends Menu {
     private ItemStack StartGame() {
         ItemStack GroupMenuGUI = new ItemStack(Material.NETHER_STAR);
         ItemMeta im = GroupMenuGUI.getItemMeta();
-        im.setDisplayName(ChatColor.GOLD + "Start Game");
+        im.setDisplayName(ChatColor.GOLD + "开始猎杀");
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         GroupMenuGUI.setItemMeta(im);
         return GroupMenuGUI;
@@ -157,7 +157,7 @@ public class PlayerMenu extends Menu {
     private ItemStack SettingGame() {
         ItemStack GroupMenuGUI = new ItemStack(Material.COMMAND_BLOCK);
         ItemMeta im = GroupMenuGUI.getItemMeta();
-        im.setDisplayName(ChatColor.YELLOW + "Settings");
+        im.setDisplayName(ChatColor.YELLOW + "设置");
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         GroupMenuGUI.setItemMeta(im);
         return GroupMenuGUI;
@@ -166,7 +166,7 @@ public class PlayerMenu extends Menu {
     private ItemStack VoteStarting() {
         ItemStack GroupMenuGUI = new ItemStack(Material.GREEN_TERRACOTTA);
         ItemMeta im = GroupMenuGUI.getItemMeta();
-        im.setDisplayName(ChatColor.GREEN + "Game Ready");
+        im.setDisplayName(ChatColor.GREEN + "准备");
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         GroupMenuGUI.setItemMeta(im);
         return GroupMenuGUI;
@@ -175,7 +175,7 @@ public class PlayerMenu extends Menu {
     private ItemStack CancelVoteStarting() {
         ItemStack GroupMenuGUI = new ItemStack(Material.RED_TERRACOTTA);
         ItemMeta im = GroupMenuGUI.getItemMeta();
-        im.setDisplayName(ChatColor.RED + ("Cancel"));
+        im.setDisplayName(ChatColor.RED + ("取消"));
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         GroupMenuGUI.setItemMeta(im);
         return GroupMenuGUI;
@@ -184,7 +184,7 @@ public class PlayerMenu extends Menu {
     private ItemStack World() {
         ItemStack GroupMenuGUI = new ItemStack(Material.GRASS_BLOCK);
         ItemMeta im = GroupMenuGUI.getItemMeta();
-        im.setDisplayName(ChatColor.AQUA + "World");
+        im.setDisplayName(ChatColor.AQUA + "世界");
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         GroupMenuGUI.setItemMeta(im);
         return GroupMenuGUI;

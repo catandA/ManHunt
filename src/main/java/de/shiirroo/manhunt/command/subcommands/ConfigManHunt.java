@@ -29,12 +29,12 @@ public class ConfigManHunt extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Toggle config on or off";
+        return "更改配置";
     }
 
     @Override
     public String getSyntax() {
-        return "/manhunt config [name]";
+        return "/manhunt config [名称]";
     }
 
     @Override
@@ -61,7 +61,7 @@ public class ConfigManHunt extends SubCommand {
     @Override
     public void perform(Player player, String[] args) {
         if (!player.isOp()) {
-            player.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "I´m sorry, but you don´t have permission to perform this command");
+            player.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "你没权限用这指令");
         } else if (args.length == 1) {
             player.sendMessage(ManHuntPlugin.getprefix() + getDescription());
         } else if (args.length == 2 && !ManHuntPlugin.getGameData().getGameStatus().isGame()) {
@@ -76,7 +76,7 @@ public class ConfigManHunt extends SubCommand {
         } else if (!ManHuntPlugin.getGameData().getGameStatus().isGame()) {
             changeBoolConfig(player, args);
         } else {
-            player.sendMessage(ManHuntPlugin.getprefix() + "You cannot edit game configurations during a game");
+            player.sendMessage(ManHuntPlugin.getprefix() + "正在游戏时没法改指令");
         }
     }
 
@@ -128,7 +128,7 @@ public class ConfigManHunt extends SubCommand {
     public static void resetPreset(Player player) {
         if (!GamePresetMenu.preset.presetName().equalsIgnoreCase(new Custom().presetName())) {
             Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "Game preset : Custom");
-            player.sendMessage(ManHuntPlugin.getprefix() + "You changed a configuration, the game preset was changed back to Custom");
+            player.sendMessage(ManHuntPlugin.getprefix() + "您更改了配置，游戏预设已更改回自定义");
             GamePresetMenu.preset = new Custom();
             GamePresetMenu.setFooderPreset(player);
             for (Menu menu : SettingsMenu.GamePreset.values()) menu.setMenuItems();
@@ -210,9 +210,9 @@ public class ConfigManHunt extends SubCommand {
                                 SettingsMenu.ConfigMenu.get(p.getUniqueId()).open();
                             return AnvilGUI.Response.close();
                         }
-                        p.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "This is an invalid input." + ChatColor.GRAY + " Enter a number between " + ChatColor.GOLD + lowestValue + ChatColor.GRAY + " - " + ChatColor.GOLD + highestValue);
+                        p.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "无效输入" + ChatColor.GRAY + "输入一个在此范围内的数" + ChatColor.GOLD + lowestValue + ChatColor.GRAY + " - " + ChatColor.GOLD + highestValue);
                     } else {
-                        p.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "This is an invalid input");
+                        p.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "无效输入");
                     }
                     return AnvilGUI.Response.text(ChatColor.GRAY + DisplayText + " " + ChatColor.GREEN + ManHuntPlugin.getGameData().getGameConfig().getConfigCreators(ConfigValue).getConfigSetting());
                 })

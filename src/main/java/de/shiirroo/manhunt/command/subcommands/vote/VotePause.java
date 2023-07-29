@@ -12,7 +12,7 @@ public class VotePause extends Vote {
 
     @Override
     protected VoteCreator voteCreator() {
-        return new VoteCreator(true, ManHuntPlugin.getPlugin(), ChatColor.GRAY + "Pause Game ? " + ChatColor.GOLD + "VOTEPLAYERS "
+        return new VoteCreator(true, ManHuntPlugin.getPlugin(), ChatColor.GRAY + "暂停游戏？" + ChatColor.GOLD + "VOTEPLAYERS "
                 + ChatColor.BLACK + "| " + ChatColor.GOLD + "ONLINEPLAYERS" + ChatColor.GRAY + " [ " + ChatColor.GREEN + "TIMER " + ChatColor.GRAY + "]", 30);
     }
 
@@ -37,6 +37,6 @@ public class VotePause extends Vote {
 
     @Override
     protected String requirementMessage() {
-        return ManHuntPlugin.getprefix() + "You can only vote for a pause if there is no pause.";
+        return ManHuntPlugin.getprefix() + "只有在没有暂停的情况下，您才能投票支持暂停";
     }
 }

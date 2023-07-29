@@ -29,7 +29,7 @@ public class Ready extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "ManHunt ready to start";
+        return "准备开始猎杀";
     }
 
     @Override
@@ -52,10 +52,10 @@ public class Ready extends SubCommand {
         if (!ManHuntPlugin.getGameData().getGameStatus().isGame()) {
             if (!setReady(p)) {
                 DecimalFormat df = new DecimalFormat("#.#");
-                p.sendMessage(ManHuntPlugin.getprefix() + "You're too fast, have a little patience [ " + ChatColor.RED + df.format(getPlayerCooldownTime(p)/1000) + ChatColor.GRAY + " ]");
+                p.sendMessage(ManHuntPlugin.getprefix() + "你太快了，慢点 [ " + ChatColor.RED + df.format(getPlayerCooldownTime(p)/1000) + ChatColor.GRAY + " ]");
             }
         } else {
-            p.sendMessage(ManHuntPlugin.getprefix() + "You can´t change ready status while running match");
+            p.sendMessage(ManHuntPlugin.getprefix() + "正在游戏时无法更改准备状态");
         }
     }
     public static boolean setReady(Player p) {
@@ -67,7 +67,7 @@ public class Ready extends SubCommand {
                 } else return readyAdd(p);
             }
         } else {
-            p.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "I´m sorry, but there are not enough players.");
+            p.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "没人啊啊啊啊没法开始");
             return true;
         }
         return false;
@@ -75,7 +75,7 @@ public class Ready extends SubCommand {
     }
 
     public static VoteCreator setReadyVote() {
-        VoteCreator readyVote = new VoteCreator(false, ManHuntPlugin.getPlugin(), ChatColor.GREEN + "Game will start in " + ChatColor.GOLD + "TIMER", Config.getReadyStartTime());
+        VoteCreator readyVote = new VoteCreator(false, ManHuntPlugin.getPlugin(), ChatColor.GREEN + "游戏将会开始于" + ChatColor.GOLD + "TIMER", Config.getReadyStartTime());
         readyVote.getbossBarCreator().onComplete(aBoolean -> {
                     ready = setReadyVote();
                     if (aBoolean) {

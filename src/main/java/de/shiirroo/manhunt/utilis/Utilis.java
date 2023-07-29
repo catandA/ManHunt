@@ -124,7 +124,7 @@ public class Utilis {
             }
         }
         if (allSpeedrunnerdead) {
-            Bukkit.getServer().broadcastMessage(ManHuntPlugin.getprefix() + "All " + ChatColor.DARK_PURPLE + "Speedrunners" + ChatColor.GRAY + " are dead. " + ChatColor.RED + "Hunters " + ChatColor.GRAY + "win!!");
+            Bukkit.getServer().broadcastMessage(ManHuntPlugin.getprefix() + "所有的" + ChatColor.DARK_PURPLE + "速通者" + ChatColor.GRAY + "都死了" + ChatColor.RED + "猎人" + ChatColor.GRAY + "胜利!!");
             if (!ManHuntPlugin.debug) {
                 ManHuntPlugin.getWorldreset().resetBossBar();
             }

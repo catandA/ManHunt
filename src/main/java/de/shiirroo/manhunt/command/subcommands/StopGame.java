@@ -17,7 +17,7 @@ public class StopGame extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Stop an active run";
+        return "停止比赛";
     }
 
     @Override
@@ -38,14 +38,14 @@ public class StopGame extends SubCommand {
     @Override
     public void perform(Player player, String[] args) {
         if (!player.isOp()) {
-            player.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "I´m sorry, but you don´t have permission to perform this command");
+            player.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "你没权限用这指令");
             return;
         }
         if (ManHuntPlugin.getGameData().getGameStatus().isStarting() || ManHuntPlugin.getGameData().getGameStatus().isGameRunning()) {
             ResetGameWorld();
-            player.sendMessage(ManHuntPlugin.getprefix() + "Game stopped and reset");
+            player.sendMessage(ManHuntPlugin.getprefix() + "游戏停止并重置");
         } else {
-            player.sendMessage(ManHuntPlugin.getprefix() + "Game isn´t running");
+            player.sendMessage(ManHuntPlugin.getprefix() + "游戏不在进行");
         }
     }
 
@@ -61,7 +61,7 @@ public class StopGame extends SubCommand {
         ManHuntPlugin.getGameData().reset();
         ManHuntPlugin.setUPWorld();
         ManHuntPlugin.getPlugin().getServer().setDefaultGameMode(GameMode.ADVENTURE);
-        Bukkit.getLogger().info(ManHuntPlugin.getprefix() + ChatColor.GRAY + "Games stopped.");
+        Bukkit.getLogger().info(ManHuntPlugin.getprefix() + ChatColor.GRAY + "游戏已停止");
     }
 
 }

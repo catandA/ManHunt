@@ -29,7 +29,7 @@ public class StartGame extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Start the ManHunt game";
+        return "开始猎人游戏";
     }
 
     @Override
@@ -52,11 +52,11 @@ public class StartGame extends SubCommand {
     @Override
     public void perform(Player player, String[] args) {
         if (!player.isOp()) {
-            player.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "I´m sorry, but you don´t have permission to perform this command");
+            player.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "你没权限用这指令");
             return;
         }
         if (ManHuntPlugin.getGameData().getGameStatus().isGame()) {
-            player.sendMessage(ManHuntPlugin.getprefix() + "Game is running");
+            player.sendMessage(ManHuntPlugin.getprefix() + "比赛正在进行");
         } else if(args.length == 2 && args[1].equalsIgnoreCase("debug")) {
             player.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "You start the game in debug mode, many functions are not possible. Don't forget to give yourself a group!");
             Start();
@@ -65,7 +65,7 @@ public class StartGame extends SubCommand {
                 Start();
             }
         } else {
-            player.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "I´m sorry, but there are not enough players");
+            player.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "没有足够的玩家");
         }
     }
 
@@ -80,26 +80,26 @@ public class StartGame extends SubCommand {
             }
             ManHuntPlugin.getGameData().getGameStatus().setStarting(true);
             ManHuntPlugin.getGameData().getPlayerData().updatePlayers(ManHuntPlugin.getTeamManager());
-            Bukkit.getLogger().info(ManHuntPlugin.getprefix() + ChatColor.GRAY + "Game will start soon.");
+            Bukkit.getLogger().info(ManHuntPlugin.getprefix() + ChatColor.GRAY + "游戏马上开始");
             ManHuntPlugin.GameTimesTimer = 20;
             setGameWorld();
             bossBarGameStart.setBossBarPlayers();
             ManHuntPlugin.getGameData().getGameMode().getRandomBlocks().execute();
             ManHuntPlugin.getGameData().getGameMode().getRandomItems().execute();
             ManHuntPlugin.getGameData().getGameMode().getRandomTP().execute();
-            Bukkit.getLogger().info(ManHuntPlugin.getprefix() + ChatColor.GRAY + "Speedrunner can run.");
+            Bukkit.getLogger().info(ManHuntPlugin.getprefix() + ChatColor.GRAY + "速通者可以开始润了");
         }
     }
 
     public static BossBarCreator createBossBarGameStart() {
-        return new BossBarCreator(ManHuntPlugin.getPlugin(), ChatColor.DARK_RED + "Hunt " + ChatColor.RED + "will start in " + ChatColor.GOLD + "TIMER", Config.getHuntStartTime())
+        return new BossBarCreator(ManHuntPlugin.getPlugin(), ChatColor.DARK_RED + "猎杀" + ChatColor.RED + "将会开始于" + ChatColor.GOLD + "TIMER", Config.getHuntStartTime())
                 .onComplete(vote -> {
                     bossBarGameStart = createBossBarGameStart();
                     ManHuntPlugin.getGameData().getGameStatus().setStarting(false);
                     ManHuntPlugin.getGameData().getGameStatus().setGameRunning(true);
                     setGameStarting();
                     ManHuntPlugin.getGameData().getGameStatus().setGameStartTime(Calendar.getInstance().getTime().getTime());
-                    Bukkit.getLogger().info(ManHuntPlugin.getprefix() + ChatColor.GRAY + "Hunters can hunt.");
+                    Bukkit.getLogger().info(ManHuntPlugin.getprefix() + ChatColor.GRAY + "猎人开追");
                     ManHuntPlugin.getGameData().getGameMode().getRandomTP().execute();
                 })
                 .onShortlyComplete(vote -> Bukkit.getOnlinePlayers().forEach(current -> current.playSound(current.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 1.0f)));
@@ -118,7 +118,7 @@ public class StartGame extends SubCommand {
                 p.setFoodLevel(20);
                 p.setTotalExperience(0);
                 p.setBedSpawnLocation(p.getWorld().getSpawnLocation());
-                p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.DARK_PURPLE + "Speedrunners " + ChatColor.GRAY + "run!!"));
+                p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.DARK_PURPLE + "速通者" + ChatColor.GRAY + "润!!"));
                 ManHuntPlugin.getGameData().getGameStatus().getLivePlayerList().add(p.getUniqueId());
                 ManHuntPlugin.getGameData().getGameStatus().getStartPlayerList().add(p.getUniqueId());
             }
@@ -151,7 +151,7 @@ public class StartGame extends SubCommand {
             Player player = Bukkit.getPlayer(uuid);
             if (player != null) {
                 if (!player.getGameMode().equals(GameMode.SPECTATOR)) {
-                    player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.RED + "Hunters" + ChatColor.GRAY + " go hunting!!"));
+                    player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.RED + "猎人" + ChatColor.GRAY + "开追!!!"));
                     player.setGameMode(GameMode.SURVIVAL);
                     getCompassTracker(player);
                 }

@@ -20,7 +20,7 @@ public class Save extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Save game data, then you can continue playing later. ";
+        return "保存游戏数据以便稍后继续";
     }
 
     @Override
@@ -43,14 +43,14 @@ public class Save extends SubCommand {
     @Override
     public void perform(Player player, String[] args) {
         if (!player.isOp()) {
-            player.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "I´m sorry, but you don´t have permission to perform this command");
+            player.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "你没权限用这指令");
             return;
         }
         if (args.length == 1) {
             try {
                 MenuManager.getMenu(GameSaveMenu.class, player.getUniqueId()).setBack(false).open();
             } catch (MenuManagerException | MenuManagerNotSetupException e) {
-                Bukkit.getLogger().info(ManHuntPlugin.getprefix() + ChatColor.RED + "Something went wrong while open game-saves");
+                Bukkit.getLogger().info(ManHuntPlugin.getprefix() + ChatColor.RED + "打开存档菜单时发生错误");
             }
         }
     }

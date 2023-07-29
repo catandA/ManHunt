@@ -16,7 +16,7 @@ public class Reset extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Reset the World";
+        return "重置世界";
     }
 
     @Override
@@ -39,12 +39,12 @@ public class Reset extends SubCommand {
     @Override
     public void perform(Player player, String[] args) {
         if (!player.isOp()) {
-            player.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "I´m sorry, but you don´t have permission to perform this command");
+            player.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "你没权限用这指令");
             return;
         }
         Bukkit.setWhitelist(true);
         for (Player p : Bukkit.getOnlinePlayers()) {
-            p.kickPlayer(ManHuntPlugin.getprefix() + "World is Resetting..");
+            p.kickPlayer(ManHuntPlugin.getprefix() + "重置世界中..");
         }
         ManHuntPlugin.getPlugin().getConfig().set("isReset", true);
         ManHuntPlugin.getPlugin().saveConfig();

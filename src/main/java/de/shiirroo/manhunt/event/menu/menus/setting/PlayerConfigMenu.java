@@ -27,9 +27,9 @@ import java.util.*;
 
 public class PlayerConfigMenu extends Menu {
 
-    final List<String> gameTimer = new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Show | Hide Game Timer"));
-    final List<String> teamChat = new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Join | Leave TeamChat"));
-    final List<String> spectator = new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Join | Leave Spectator Mode "));
+    final List<String> gameTimer = new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "显示 | 隐藏 游戏计时器"));
+    final List<String> teamChat = new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "加入 | 离开 队伍聊天"));
+    final List<String> spectator = new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "加入 | 离开 观察者模式 "));
 
     public PlayerConfigMenu(PlayerMenuUtility playerMenuUtility) {
         super(playerMenuUtility);
@@ -37,7 +37,7 @@ public class PlayerConfigMenu extends Menu {
 
     @Override
     public String getMenuName() {
-        return "User Config: " + ChatColor.BLACK + Objects.requireNonNull(Bukkit.getPlayer(uuid)).getName();
+        return "用户配置: " + ChatColor.BLACK + Objects.requireNonNull(Bukkit.getPlayer(uuid)).getName();
     }
 
     @Override

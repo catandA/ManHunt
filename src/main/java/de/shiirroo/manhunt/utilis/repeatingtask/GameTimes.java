@@ -47,9 +47,9 @@ public class GameTimes implements Runnable {
                     if (player.getGameMode().equals(GameMode.SPECTATOR)) {
                         PotionEffect potionEffect = new PotionEffect(PotionEffectType.BLINDNESS, 40, 255, false, false);
                         player.addPotionEffect(potionEffect);
-                        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GOLD + "You're in the Spectator, wait for the game to start."));
+                        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GOLD + "你现在在观察模式，等待比赛开始"));
                     } else if (playerExitAreaTimer == null && Ready.ready != null) {
-                        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GOLD + String.valueOf(Ready.ready.getPlayers().size()) + ChatColor.BLACK + " | " + ChatColor.GOLD + Bukkit.getOnlinePlayers().stream().filter(e -> !e.getGameMode().equals(GameMode.SPECTATOR)).count() + ChatColor.GREEN + " Ready"));
+                        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GOLD + String.valueOf(Ready.ready.getPlayers().size()) + ChatColor.BLACK + " | " + ChatColor.GOLD + Bukkit.getOnlinePlayers().stream().filter(e -> !e.getGameMode().equals(GameMode.SPECTATOR)).count() + ChatColor.GREEN + " 已准备"));
                     }
                 }
             } else if (ManHuntPlugin.getGameData().getGameStatus().getGameStartTime() != 0) {
@@ -59,11 +59,11 @@ public class GameTimes implements Runnable {
                     ManHuntPlugin.getGameData().getGameStatus().setGameElapsedTime(timeCalc);
                     if ((ManHuntPlugin.getGameData().getGameStatus().getGameElapsedTime() - ((long) Config.getGameResetTime() * 60 * 60)) >= 0) {
                         ManHuntPlugin.getGameData().getGameStatus().setGameElapsedTime(0);
-                        Bukkit.getServer().broadcastMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "The game time has expired, the map resets itself");
+                        Bukkit.getServer().broadcastMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "游戏时间已过，地图自行重置");
                         ManHuntPlugin.getWorldreset().resetBossBar();
                     } else if (ManHuntPlugin.getGameData().getGameStatus().getElapsedTime() == ManHuntPlugin.getGameData().getGameStatus().getGameElapsedTime() / (60 * 60)) {
                         long diffHours = Config.getGameResetTime() - ManHuntPlugin.getGameData().getGameStatus().getGameElapsedTime() / (60 * 60);
-                        Bukkit.getServer().broadcastMessage(ManHuntPlugin.getprefix() + "Game time has elapsed " + ChatColor.GOLD + ManHuntPlugin.getGameData().getGameStatus().getElapsedTime() + ChatColor.GRAY + (ManHuntPlugin.getGameData().getGameStatus().getElapsedTime() > 1 ? " hour" : " hours") + ". There are still " + ChatColor.GOLD + diffHours + ChatColor.GRAY + (diffHours > 1 ? " hour" : " hours") + " left");
+                        Bukkit.getServer().broadcastMessage(ManHuntPlugin.getprefix() + "游戏时间已经过去了 " + ChatColor.GOLD + ManHuntPlugin.getGameData().getGameStatus().getElapsedTime() + ChatColor.GRAY + " 小时" + " 剩余时间" + ChatColor.GOLD + diffHours + ChatColor.GRAY + " 小时");
                         ManHuntPlugin.getGameData().getGameStatus().setElapsedTime(ManHuntPlugin.getGameData().getGameStatus().getElapsedTime() + 1);
                     }
                     for (Player player : Bukkit.getOnlinePlayers()) {
@@ -83,7 +83,7 @@ public class GameTimes implements Runnable {
             }
         } else {
             for (Player player : Bukkit.getOnlinePlayers()) {
-                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GOLD + "Game is Paused" + ChatColor.RED + " ...   " + Events.getTimeString(false, Calendar.getInstance().getTime().getTime() - ManHuntPlugin.getGameData().getGamePause().getPauseList().get((ManHuntPlugin.getGameData().getGamePause().getPauseList().size() - 1)))));
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GOLD + "游戏已暂停" + ChatColor.RED + " ...   " + Events.getTimeString(false, Calendar.getInstance().getTime().getTime() - ManHuntPlugin.getGameData().getGamePause().getPauseList().get((ManHuntPlugin.getGameData().getGamePause().getPauseList().size() - 1)))));
             }
         }
     }

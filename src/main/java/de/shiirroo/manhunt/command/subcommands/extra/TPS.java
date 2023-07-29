@@ -16,7 +16,7 @@ public class TPS extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Show minecraft TPS";
+        return "显示TPS";
     }
 
     @Override

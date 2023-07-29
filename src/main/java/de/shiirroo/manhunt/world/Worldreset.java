@@ -33,16 +33,16 @@ public class Worldreset {
     }
 
     public void resetBossBar() {
-        Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "World is Resetting");
+        Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "正在重置世界");
         worldReset.setBossBarPlayers();
     }
 
     private BossBarCreator creatorWorldReset() {
-        BossBarCreator bossBarCreator = new BossBarCreator(ManHuntPlugin.getPlugin(), ChatColor.GREEN + "World will reset in" + ChatColor.RED + " TIMER", 30);
+        BossBarCreator bossBarCreator = new BossBarCreator(ManHuntPlugin.getPlugin(), ChatColor.GREEN + "世界将会重置于" + ChatColor.RED + " TIMER", 30);
         bossBarCreator.onComplete(aBoolean -> {
             Bukkit.setWhitelist(true);
             for (Player p : Bukkit.getOnlinePlayers()) {
-                p.kickPlayer(ManHuntPlugin.getprefix() + "World is Resetting..");
+                p.kickPlayer(ManHuntPlugin.getprefix() + "世界重置中..");
             }
             ManHuntPlugin.getPlugin().getConfig().set("isReset", true);
             ManHuntPlugin.getPlugin().saveConfig();

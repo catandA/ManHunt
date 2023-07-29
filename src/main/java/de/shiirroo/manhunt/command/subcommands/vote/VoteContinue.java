@@ -13,7 +13,7 @@ import java.util.Calendar;
 public class VoteContinue extends Vote {
     @Override
     protected VoteCreator voteCreator() {
-        return new VoteCreator(true, ManHuntPlugin.getPlugin(), ChatColor.GRAY + "Continue Game ? " + ChatColor.GOLD + "VOTEPLAYERS " + ChatColor.BLACK + "| " + ChatColor.GOLD + "GAMEPLAYERS" + ChatColor.GRAY + " [ " + ChatColor.GREEN + "TIMER " + ChatColor.GRAY + "]", 30);
+        return new VoteCreator(true, ManHuntPlugin.getPlugin(), ChatColor.GRAY + "继续游戏？" + ChatColor.GOLD + "VOTEPLAYERS " + ChatColor.BLACK + "| " + ChatColor.GOLD + "GAMEPLAYERS" + ChatColor.GRAY + " [ " + ChatColor.GREEN + "TIMER " + ChatColor.GRAY + "]", 30);
     }
 
     @Override
@@ -44,6 +44,6 @@ public class VoteContinue extends Vote {
 
     @Override
     protected String requirementMessage() {
-        return ManHuntPlugin.getprefix() + "You can only end the pause if there is no pause.";
+        return ManHuntPlugin.getprefix() + "只有在没有暂停的情况下，才能结束暂停";
     }
 }

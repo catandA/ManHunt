@@ -16,7 +16,7 @@ public class Leave extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Leave Group";
+        return "离开队伍";
     }
 
     @Override
@@ -39,17 +39,17 @@ public class Leave extends SubCommand {
     @Override
     public void perform(Player player, String[] args) {
         if (ManHuntPlugin.getGameData().getPlayerData().getPlayerRoleByUUID(player.getUniqueId()) == null) {
-            player.sendMessage(ManHuntPlugin.getprefix() + "You are not in a group");
+            player.sendMessage(ManHuntPlugin.getprefix() + "你没加队伍");
         } else if (!ManHuntPlugin.getGameData().getGameStatus().isGame()) {
             if (!ManHuntPlugin.getGameData().getPlayerData().getPlayerRoleByUUID(player.getUniqueId()).equals(ManHuntRole.Unassigned)) {
-                player.sendMessage(ManHuntPlugin.getprefix() + "You left the group: " + ChatColor.GOLD + ManHuntPlugin.getGameData().getPlayerData().getPlayerRoleByUUID(player.getUniqueId()));
+                player.sendMessage(ManHuntPlugin.getprefix() + "你离开了队伍：" + ChatColor.GOLD + ManHuntPlugin.getGameData().getPlayerData().getPlayerRoleByUUID(player.getUniqueId()));
                 ManHuntPlugin.getGameData().getPlayerData().setRole(player, ManHuntRole.Unassigned, ManHuntPlugin.getTeamManager());
                 TeamChat.leaveChat(player);
             } else {
-                player.sendMessage(ManHuntPlugin.getprefix() + "You can´t leave this group");
+                player.sendMessage(ManHuntPlugin.getprefix() + "你不能离开这个队伍");
             }
         } else {
-            player.sendMessage(ManHuntPlugin.getprefix() + "You cannot leave the group during a game");
+            player.sendMessage(ManHuntPlugin.getprefix() + "正在比赛时无法离队");
         }
     }
 

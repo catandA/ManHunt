@@ -103,9 +103,9 @@ public class LoadSaveMenu extends Menu {
     private ItemStack getSaveWorldItemStack(Boolean saveAgain) {
         ItemStack saveWorldItem = new ItemStack(Material.WRITABLE_BOOK);
         ItemMeta im = saveWorldItem.getItemMeta();
-        im.setDisplayName(ChatColor.GREEN + (saveAgain ? "§lSAVE AGAIN" : "§lSAVE"));
+        im.setDisplayName(ChatColor.GREEN + (saveAgain ? "§l再次保存" : "§l保存"));
         if(!ManHuntPlugin.getGameData().getGameStatus().isGameRunning()){
-            im.setLore(List.of("", ChatColor.RED  + "Game can only be ",ChatColor.RED  +"saved during a game"));
+            im.setLore(List.of("", ChatColor.RED  + "游戏只能",ChatColor.RED  +"在进行时保存"));
         }
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         saveWorldItem.setItemMeta(im);
@@ -115,7 +115,7 @@ public class LoadSaveMenu extends Menu {
     private ItemStack getDeleteWorldSaveItemStack() {
         ItemStack deleteWorldItem = new ItemStack(Material.TNT);
         ItemMeta im = deleteWorldItem.getItemMeta();
-        im.setDisplayName(ChatColor.RED + "§lDELETE");
+        im.setDisplayName(ChatColor.RED + "§l删除");
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         deleteWorldItem.setItemMeta(im);
         return deleteWorldItem;
@@ -124,7 +124,7 @@ public class LoadSaveMenu extends Menu {
     private ItemStack getLoadWorldSaveItemStack() {
         ItemStack loadWorldItem = new ItemStack(Material.WRITTEN_BOOK);
         ItemMeta im = loadWorldItem.getItemMeta();
-        im.setDisplayName(ChatColor.GOLD + "§lLOAD");
+        im.setDisplayName(ChatColor.GOLD + "§l加载");
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         loadWorldItem.setItemMeta(im);
         return loadWorldItem;
@@ -133,24 +133,24 @@ public class LoadSaveMenu extends Menu {
     private ItemStack getSaveDataItemStack() {
         ItemStack loadWorldItem = new ItemStack(Material.PAPER);
         ItemMeta im = loadWorldItem.getItemMeta();
-        im.setDisplayName(ChatColor.GREEN + "§lGame-Data");
+        im.setDisplayName(ChatColor.GREEN + "§l游戏数据");
         List<String> listLore = new ArrayList<>(List.of(""));
 
         GameData gameData = findSaveGame().getGameSaveData();
         if (gameData.getGameStatus().isGameRunning()) {
             listLore.add(ChatColor.YELLOW + "➢ " + ChatColor.GOLD + "ID : " + ChatColor.GREEN + gameData.getId().getMostSignificantBits());
-            listLore.add(ChatColor.YELLOW + "➢ " + ChatColor.GOLD + "Game-Time : " + Events.getTimeString(false, GameTimes.getStartTime(gameData.getGameStatus().getGameStartTime(), gameData.getGamePause().getPauseList(), gameData.getGamePause().getUnPauseList())));
-            listLore.add(ChatColor.YELLOW + "➢ " + ChatColor.GOLD + "Used pause : " + ChatColor.GREEN + gameData.getGamePause().getUnPauseList().size());
-            listLore.add(ChatColor.YELLOW + "➢ " + ChatColor.GOLD + "Living Players : " + ChatColor.GREEN + gameData.getGameStatus().getLivePlayerList().size() + ChatColor.GRAY + " | " + ChatColor.GREEN + gameData.getGameStatus().getStartPlayerList().size());
+            listLore.add(ChatColor.YELLOW + "➢ " + ChatColor.GOLD + "游戏时间 : " + Events.getTimeString(false, GameTimes.getStartTime(gameData.getGameStatus().getGameStartTime(), gameData.getGamePause().getPauseList(), gameData.getGamePause().getUnPauseList())));
+            listLore.add(ChatColor.YELLOW + "➢ " + ChatColor.GOLD + "暂停次数 : " + ChatColor.GREEN + gameData.getGamePause().getUnPauseList().size());
+            listLore.add(ChatColor.YELLOW + "➢ " + ChatColor.GOLD + "存活玩家 : " + ChatColor.GREEN + gameData.getGameStatus().getLivePlayerList().size() + ChatColor.GRAY + " | " + ChatColor.GREEN + gameData.getGameStatus().getStartPlayerList().size());
             listLore.add("");
-            listLore.add(ChatColor.YELLOW + "➢ " + ManHuntRole.Speedrunner.getChatColor() + "Speedrunners : " + ChatColor.GREEN + gameData.getPlayerData().getPlayersByRole(ManHuntRole.Speedrunner).size());
-            listLore.add(ChatColor.YELLOW + "➢ " + ManHuntRole.Hunter.getChatColor() + "Hunter : " + ChatColor.GREEN + gameData.getPlayerData().getPlayersByRole(ManHuntRole.Hunter).size());
-            listLore.add(ChatColor.YELLOW + "➢ " + ManHuntRole.Assassin.getChatColor() + "Assassins : " + ChatColor.GREEN + gameData.getPlayerData().getPlayersByRole(ManHuntRole.Assassin).size());
+            listLore.add(ChatColor.YELLOW + "➢ " + ManHuntRole.Speedrunner.getChatColor() + "速通者 : " + ChatColor.GREEN + gameData.getPlayerData().getPlayersByRole(ManHuntRole.Speedrunner).size());
+            listLore.add(ChatColor.YELLOW + "➢ " + ManHuntRole.Hunter.getChatColor() + "猎人 : " + ChatColor.GREEN + gameData.getPlayerData().getPlayersByRole(ManHuntRole.Hunter).size());
+            listLore.add(ChatColor.YELLOW + "➢ " + ManHuntRole.Assassin.getChatColor() + "刺客 : " + ChatColor.GREEN + gameData.getPlayerData().getPlayersByRole(ManHuntRole.Assassin).size());
             listLore.add("");
-            listLore.add(ChatColor.YELLOW + "➢ " + ChatColor.GOLD + "Remaining time :" + ChatColor.GREEN + " " + Events.getTimeString(false, ((((Integer) gameData.getGameConfig().getConfigCreators("GameResetTime").getConfigSetting()) * 60 * 60) - gameData.getGameStatus().getGameElapsedTime()) * 1000));
+            listLore.add(ChatColor.YELLOW + "➢ " + ChatColor.GOLD + "剩余时间 :" + ChatColor.GREEN + " " + Events.getTimeString(false, ((((Integer) gameData.getGameConfig().getConfigCreators("GameResetTime").getConfigSetting()) * 60 * 60) - gameData.getGameStatus().getGameElapsedTime()) * 1000));
 
         }
-        listLore.addAll(Arrays.asList("", ChatColor.YELLOW + "● Created on: " + ChatColor.GREEN + findSaveGame().getDateString()));
+        listLore.addAll(Arrays.asList("", ChatColor.YELLOW + "● 创建于: " + ChatColor.GREEN + findSaveGame().getDateString()));
         im.setLore(listLore);
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         loadWorldItem.setItemMeta(im);
@@ -162,7 +162,7 @@ public class LoadSaveMenu extends Menu {
         long saveTime = findSaveGame().saveGame(true, ManHuntPlugin.getGameData());
         back();
         getPlayer().sendMessage(ManHuntPlugin.getprefix() + ChatColor.GOLD + ManHuntPlugin.getGameData().getGameStatus().getAutoSave().getSaveName()
-                + ChatColor.GRAY + " was saved. ( " + ChatColor.GREEN + saveTime + " ms " + ChatColor.GRAY + ")");
+                + ChatColor.GRAY + " 已保存 ( " + ChatColor.GREEN + saveTime + " ms " + ChatColor.GRAY + ")");
     }
 
     private SaveGame findSaveGame() {
@@ -178,7 +178,7 @@ public class LoadSaveMenu extends Menu {
     private void loadWorld() {
         ManHuntPlugin.getPlugin().getConfig().set("LoadSaveGame", findSaveGame().getSaveSlot());
         ManHuntPlugin.getPlugin().saveConfig();
-        Bukkit.getServer().getOnlinePlayers().forEach(player -> player.kickPlayer(("SaveGame-" + findSaveGame().getSaveName() + " is loading ...")));
+        Bukkit.getServer().getOnlinePlayers().forEach(player -> player.kickPlayer(("SaveGame-" + findSaveGame().getSaveName() + " 正在加载 ...")));
         Bukkit.spigot().restart();
     }
 
@@ -187,6 +187,6 @@ public class LoadSaveMenu extends Menu {
         long deleteTime = findSaveGame().deleteSave();
         back();
         Objects.requireNonNull(Bukkit.getPlayer(uuid)).sendMessage(ManHuntPlugin.getprefix() + ChatColor.GOLD + ManHuntPlugin.getGameData().getGameStatus().getAutoSave().getSaveName()
-                + ChatColor.GRAY + " was deleted. ( " + ChatColor.GREEN + deleteTime + " ms " + ChatColor.GRAY + ")");
+                + ChatColor.GRAY + " 已删除 ( " + ChatColor.GREEN + deleteTime + " ms " + ChatColor.GRAY + ")");
     }
 }

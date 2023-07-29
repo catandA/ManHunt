@@ -26,10 +26,10 @@ public abstract class Menu implements InventoryHolder {
     protected final PlayerMenuUtility playerMenuUtility;
     protected final UUID uuid;
     protected final ItemStack FILLER_GLASS = makeItem(Material.GRAY_STAINED_GLASS_PANE, " ");
-    protected final ItemStack CLOSE_ITEM = makeItem(Material.BARRIER, ChatColor.RED + "CLOSE");
+    protected final ItemStack CLOSE_ITEM = makeItem(Material.BARRIER, ChatColor.RED + "关闭");
     final List<DyeColor> colorBACK = Arrays.asList(DyeColor.BLACK, DyeColor.BLACK, DyeColor.WHITE, DyeColor.WHITE, DyeColor.WHITE);
     final List<PatternType> patternTypeBACK = Arrays.asList(PatternType.STRIPE_LEFT, PatternType.STRIPE_MIDDLE, PatternType.STRIPE_TOP, PatternType.STRIPE_BOTTOM, PatternType.CURLY_BORDER);
-    protected final ItemStack BACK_ITEM = getItemStackBanner(ChatColor.GREEN + "BACK", Material.WHITE_BANNER, colorBACK, patternTypeBACK, ChatColor.BLUE);
+    protected final ItemStack BACK_ITEM = getItemStackBanner(ChatColor.GREEN + "返回", Material.WHITE_BANNER, colorBACK, patternTypeBACK, ChatColor.BLUE);
     protected GameMode gameMode;
     protected Inventory inventory;
     protected boolean hasBack = false;
@@ -166,7 +166,7 @@ public abstract class Menu implements InventoryHolder {
     public ItemStack CommingSoon() {
         ItemStack itemStack = new ItemStack(Material.BARRIER, 1);
         ItemMeta im = itemStack.getItemMeta();
-        im.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "Comming Soon..");
+        im.setDisplayName(ChatColor.RED + "" + ChatColor.BOLD + "即将到来");
         itemStack.setItemMeta(im);
         return itemStack;
     }

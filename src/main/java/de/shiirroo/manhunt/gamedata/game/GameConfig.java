@@ -23,38 +23,38 @@ public class GameConfig implements Serializable {
 
     public GameConfig(Plugin plugin) {
         LinkedHashSet<ConfigCreator> newConfigCreatorsSett = new LinkedHashSet<>();
-        Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "Config is loaded.");
+        Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "配置已加载");
         newConfigCreatorsSett.add(new ConfigCreator("HuntStartTime", 5, 999, 120).configCreator(plugin)
-                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Start time when", ChatColor.GRAY + "the hunters can hunt"))));
+                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "猎人们可以开始狩猎的时间"))));
         newConfigCreatorsSett.add(new ConfigCreator("AssassinsInstaKill").configCreator(plugin)
-                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Assassins can Instakill Speedrunners", ChatColor.GRAY + "or remove one piece of armor each hit."))));
+                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "刺客可以秒杀速通者,", ChatColor.GRAY + "或者每次攻击移除一件护甲"))));
         newConfigCreatorsSett.add(new ConfigCreator("CompassTracking").configCreator(plugin)
-                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Point Speedrunners at your", ChatColor.GRAY + "compass in the overworld"))));
+                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "在主世界用指南针指向速通者"))));
         newConfigCreatorsSett.add(new ConfigCreator("GiveCompass").configCreator(plugin)
-                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Give Hunters a compass at", ChatColor.GRAY + "the start of the game"))));
+                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "在游戏开始的时候", ChatColor.GRAY + "给猎人指南针"))));
         newConfigCreatorsSett.add(new ConfigCreator("CompassParticleToSpeedrunner").configCreator(plugin)
-                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Show Particle where the Speedrunners are.", ChatColor.GRAY + "Only works with compass in hand"))));
+                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "用粒子效果显示速通者在哪", ChatColor.GRAY + "只在手上有指南针的时候有效"))));
         newConfigCreatorsSett.add(new ConfigCreator("FreezeAssassin").configCreator(plugin)
-                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Freeze Assassins of", ChatColor.GRAY + "the Gears of Speedrunners."))));
+                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Freeze Assassins of the Gears of Speedrunners."))));
         newConfigCreatorsSett.add(new ConfigCreator("BossbarCompass").configCreator(plugin)
-                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Give Hunters a compass in the", ChatColor.GRAY + "boss bar where the Speedrunners ", "", ChatColor.DARK_RED + "! ALPHA TEST !"))));
+                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "在BOSS栏显示速通者的位置", "", ChatColor.DARK_RED + "! ALPHA TEST !"))));
         newConfigCreatorsSett.add(new ConfigCreator("ShowAdvancement").configCreator(plugin)
-                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Show whether a player has", ChatColor.GRAY + "received an advancement"))));
+                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "显示", ChatColor.GRAY + "玩家的进度"))));
         newConfigCreatorsSett.add(new ConfigCreator("CompassAutoUpdate").configCreator(plugin)
-                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Compass updates automatically"))));
+                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "指南针自动更新"))));
         newConfigCreatorsSett.add(new ConfigCreator("CompassTriggerTimer", 5, 300, 15).configCreator(plugin)
-                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Timer when Hunters can ", ChatColor.GRAY + "Update there Compass."))));
+                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "猎人能更新指南针的时间"))));
         newConfigCreatorsSett.add(new ConfigCreator("SpeedrunnerOpportunity", 1, 99, 40).configCreator(plugin)
-                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Percentage chance to ", ChatColor.GRAY + "become a speedrunner."))));
-        newConfigCreatorsSett.add(new ConfigCreator("SpawnPlayerLeaveZombie").configCreator(plugin)
-                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Spawn a Player Zombie when ", ChatColor.GRAY + "a player leaves the game."))));
+                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "成为速通者的百分比概率"))));
+        newConfigCreatorsSett.add(new ConfigCreator("离开玩家生成僵尸").configCreator(plugin)
+                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "有玩家退出的时候生成一个玩家僵尸"))));
         newConfigCreatorsSett.add(new ConfigCreator("ReadyStartTime", 5, 120, 15).configCreator(plugin)
-                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Ready time until the game starts."))));
+                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "游戏开始前的准备时间"))));
         newConfigCreatorsSett.add(new ConfigCreator("GameResetTime", 2, 100, 8).configCreator(plugin)
                 .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Time in hours when the game ", ChatColor.GRAY + "will reset itself."))));
         newConfigCreatorsSett.add(new ConfigCreator("MaxPlayerSize", 2, 100, 10).configCreator(plugin)
-                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Max Player Size", ChatColor.GRAY + "for this game"))));
-        Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "Config was loaded successfully");
+                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "猎杀的", ChatColor.GRAY + "最大玩家数"))));
+        Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "配置已重载");
         plugin.saveConfig();
         configCreatorsSett = newConfigCreatorsSett.stream().sorted(Comparator.comparing(ConfigCreator::getConfigName)).collect(Collectors.toCollection(LinkedHashSet::new));
     }

@@ -26,12 +26,12 @@ public class VoteCommand extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "Vote for one of the available votes or create a new one";
+        return "为其中一个可用投票或创建一个新投票";
     }
 
     @Override
     public String getSyntax() {
-        return "/manhunt vote or vote [Votename]";
+        return "/manhunt vote 或者 vote [投票项目]";
     }
 
     @Override
@@ -58,7 +58,7 @@ public class VoteCommand extends SubCommand {
         if (ManHuntPlugin.getGameData().getGameStatus().isGameRunning() && ManHuntPlugin.getGameData().getGameStatus().getLivePlayerList().contains(player.getUniqueId())) {
             if (vote != null && args.length == 1) {
                 if (vote.getVoteCreator().hasPlayerVote(player)) {
-                    player.sendMessage(ManHuntPlugin.getprefix() + "You have already voted.");
+                    player.sendMessage(ManHuntPlugin.getprefix() + "你投了票了");
                 } else {
                     vote.getVoteCreator().addVote(player);
                 }
@@ -77,13 +77,13 @@ public class VoteCommand extends SubCommand {
                         }
                     }
                 } else {
-                    player.sendMessage(ManHuntPlugin.getprefix() + "There are currently no votes.");
+                    player.sendMessage(ManHuntPlugin.getprefix() + "现在没有投票");
                 }
             } else {
-                player.sendMessage(ManHuntPlugin.getprefix() + "There is already a vote in progress.");
+                player.sendMessage(ManHuntPlugin.getprefix() + "现在已经有个投票项目了");
             }
         } else {
-            player.sendMessage(ManHuntPlugin.getprefix() + "No votes can be started at the moment.");
+            player.sendMessage(ManHuntPlugin.getprefix() + "目前无法开始投票");
         }
     }
 

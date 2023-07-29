@@ -21,12 +21,12 @@ public class Join extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "You can join Group " + setDescription();
+        return "您可以加入组" + setDescription();
     }
 
     @Override
     public String getSyntax() {
-        return "/manhunt join [Group name]";
+        return "/manhunt join [组名]";
     }
 
     @Override
@@ -56,7 +56,7 @@ public class Join extends SubCommand {
     @Override
     public void perform(Player player, String[] args) {
         if (ManHuntPlugin.getGameData().getGameStatus().isGame()) {
-            player.sendMessage(ManHuntPlugin.getprefix() + "Can´t change group while running match");
+            player.sendMessage(ManHuntPlugin.getprefix() + "运行比赛时无法换队伍");
         } else if(Ready.ready != null && !Ready.ready.getbossBarCreator().isRunning() && !Ready.ready.hasPlayerVote(player)){
             List<String> list = Stream.of(ManHuntRole.values()).map(ManHuntRole::toString).toList();
             if (args.length == 1) {
@@ -66,11 +66,11 @@ public class Join extends SubCommand {
                 if (list.contains(group)) {
                     joinGroup(player, ManHuntRole.valueOf(group));
                 } else {
-                    player.sendMessage(ManHuntPlugin.getprefix() + "This was not found: " + ChatColor.GOLD + group);
+                    player.sendMessage(ManHuntPlugin.getprefix() + "未找到： " + ChatColor.GOLD + group);
                 }
             }
         } else {
-            player.sendMessage(ManHuntPlugin.getprefix() + "You cannot change your group when you are ready");
+            player.sendMessage(ManHuntPlugin.getprefix() + "准备状态下无法换队伍");
         }
     }
 
@@ -81,26 +81,26 @@ public class Join extends SubCommand {
                 || Integer.parseInt(GamePresetMenu.preset.getMaxPlayerPerSize(manHuntRole)) > ManHuntPlugin.getGameData().getPlayerData().getPlayersByRole(manHuntRole).size()) {
             if (!mHR.equals(ManHuntRole.Unassigned)) {
                     ManHuntPlugin.getGameData().getPlayerData().setRole(player, manHuntRole, ManHuntPlugin.getTeamManager());
-                    player.sendMessage(ManHuntPlugin.getprefix() + "You left the group " + ChatColor.GOLD + mHR + ChatColor.GRAY + " and joined the group: " + ChatColor.GOLD + manHuntRole);
+                    player.sendMessage(ManHuntPlugin.getprefix() + "你离开了" + ChatColor.GOLD + mHR + ChatColor.GRAY + "并加入了新队伍：" + ChatColor.GOLD + manHuntRole);
                     TeamChat.leaveChat(player);
                     return true;
                 } else {
                     ManHuntPlugin.getGameData().getPlayerData().reset(player, ManHuntPlugin.getTeamManager());
                     ManHuntPlugin.getGameData().getPlayerData().setRole(player, manHuntRole, ManHuntPlugin.getTeamManager());
-                    player.sendMessage(ManHuntPlugin.getprefix() + "You have joined the group: " + ChatColor.GOLD + manHuntRole);
+                    player.sendMessage(ManHuntPlugin.getprefix() + "您已加入该队：" + ChatColor.GOLD + manHuntRole);
                     TeamChat.leaveChat(player);
                     return true;
 
                 }
             } else {
                 ManHuntPlugin.getGameData().getPlayerData().setRole(player, manHuntRole, ManHuntPlugin.getTeamManager());
-                player.sendMessage(ManHuntPlugin.getprefix() + "You have joined the group: " + ChatColor.GOLD + manHuntRole);
+                player.sendMessage(ManHuntPlugin.getprefix() + "您已加入该队：" + ChatColor.GOLD + manHuntRole);
                 return true;
             }
         } else {
-            player.sendMessage(ManHuntPlugin.getprefix() + "You cannot join the same group");
+            player.sendMessage(ManHuntPlugin.getprefix() + "您不能加入同一队");
         }
-        player.sendMessage(ManHuntPlugin.getprefix() + "You cannot join full groups");
+        player.sendMessage(ManHuntPlugin.getprefix() + "你要加的队伍满人了");
         return false;
     }
 }

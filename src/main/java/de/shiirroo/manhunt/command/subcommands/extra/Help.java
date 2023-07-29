@@ -24,7 +24,7 @@ public class Help extends SubCommand {
 
     @Override
     public String getDescription() {
-        return "It will show your information about the plugin";
+        return "它将显示有关插件的信息";
     }
 
     @Override
@@ -51,7 +51,7 @@ public class Help extends SubCommand {
     @Override
     public void perform(Player p, String[] args) {
         if(args.length == 1){
-            p.sendMessage(ChatColor.WHITE +"--- "+ChatColor.AQUA+"Information about "+ ManHuntPlugin.getPlugin().getName()+ " "+ChatColor.GOLD+ "v" + ManHuntPlugin.getPlugin().getDescription().getVersion() +ChatColor.WHITE +" - "+ChatColor.GREEN +"Page " +ChatColor.GOLD+ (1)+ChatColor.WHITE+ " | "  +ChatColor.GOLD+  ((getSubCommands.size()) / Math.min(getSubCommands.size(), 5)) +ChatColor.WHITE+" ---");
+            p.sendMessage(ChatColor.WHITE +"--- "+ChatColor.AQUA+"有关以下方面的信息"+ ManHuntPlugin.getPlugin().getName()+ " "+ChatColor.GOLD+ "v" + ManHuntPlugin.getPlugin().getDescription().getVersion() +ChatColor.WHITE +" - "+ChatColor.GREEN +"Page " +ChatColor.GOLD+ (1)+ChatColor.WHITE+ " | "  +ChatColor.GOLD+  ((getSubCommands.size()) / Math.min(getSubCommands.size(), 5)) +ChatColor.WHITE+" ---");
             for(int i = 0; i<=(Math.min(getSubCommands.size() -1, 4)); i++){
                 p.sendMessage(ChatColor.GOLD + getSubCommands.get(i).getSyntax() + ": " + ChatColor.GRAY + getSubCommands.get(i).getDescription());
             }
@@ -63,7 +63,7 @@ public class Help extends SubCommand {
                     CommandSize = getSubCommands.size() - 1;
                 }
 
-                p.sendMessage(ChatColor.WHITE +"--- "+ChatColor.AQUA+"Information about "+ ManHuntPlugin.getPlugin().getName()+ ChatColor.GOLD+ "v" + ManHuntPlugin.getPlugin().getDescription().getVersion() +ChatColor.WHITE +" - "+ChatColor.GREEN +"Page " +ChatColor.GOLD+ (page + 1)+ChatColor.WHITE+ " | "  +ChatColor.GOLD+  ((getSubCommands.size()) / Math.min(getSubCommands.size(), 5)) +ChatColor.WHITE+" ---");
+                p.sendMessage(ChatColor.WHITE +"--- "+ChatColor.AQUA+"有关以下方面的信息"+ ManHuntPlugin.getPlugin().getName()+ ChatColor.GOLD+ "v" + ManHuntPlugin.getPlugin().getDescription().getVersion() +ChatColor.WHITE +" - "+ChatColor.GREEN +"Page " +ChatColor.GOLD+ (page + 1)+ChatColor.WHITE+ " | "  +ChatColor.GOLD+  ((getSubCommands.size()) / Math.min(getSubCommands.size(), 5)) +ChatColor.WHITE+" ---");
                 for (int i = ((5 * page)); i <= CommandSize; i++) {
                     p.sendMessage(ChatColor.GOLD + getSubCommands.get(i).getSyntax() + ": " + ChatColor.GRAY + getSubCommands.get(i).getDescription());
                 }

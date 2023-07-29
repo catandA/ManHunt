@@ -33,7 +33,7 @@ public class GamePresetMenu extends Menu {
 
     public static void setFooderPreset(Player player) {
         String[] name = GamePresetMenu.preset.presetName().split("\\.");
-        player.setPlayerListFooter(ChatColor.GOLD + "Game Preset: " + ChatColor.GREEN + name[name.length - 1]);
+        player.setPlayerListFooter(ChatColor.GOLD + "游戏预设: " + ChatColor.GREEN + name[name.length - 1]);
     }
 
     public static boolean checkCustom() {
@@ -48,7 +48,7 @@ public class GamePresetMenu extends Menu {
 
     @Override
     public String getMenuName() {
-        return "Game Preset";
+        return "游戏预设";
     }
 
     @Override
@@ -79,7 +79,7 @@ public class GamePresetMenu extends Menu {
                 GamePreset turtle = new Turtle();
                 if (e.getCurrentItem().equals(custom.displayItem()) && checkCustom()) {
                     if (checkCustom()) {
-                        Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "Game preset : Custom");
+                        Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "游戏预设 : 自定义");
                         p.playSound(p.getLocation(), Sound.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, 2.0f, 3.0f);
                     } else {
                         p.playSound(p.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 1.5f, 3.5f);
@@ -91,21 +91,21 @@ public class GamePresetMenu extends Menu {
                 } else if (e.getCurrentItem().equals(defaultpreset.displayItem()) && !preset.presetName().equals(defaultpreset.presetName())) {
                     preset = defaultpreset;
                     preset.setConfig();
-                    Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "Game preset : Default");
+                    Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "游戏预设 : 默认");
                     p.playSound(p.getLocation(), Sound.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, 2.0f, 3.0f);
                     Ready.ready.cancelVote();
 
                 } else if (e.getCurrentItem().equals(hardcore.displayItem()) && !preset.presetName().equals(hardcore.presetName())) {
                     preset = hardcore;
                     preset.setConfig();
-                    Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "Game preset : Hardcore");
+                    Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "游戏预设 : 硬核");
                     p.playSound(p.getLocation(), Sound.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, 2.0f, 3.0f);
                     Ready.ready.cancelVote();
 
                 } else if (e.getCurrentItem().equals(turtle.displayItem()) && !preset.presetName().equals(turtle.presetName())) {
                     preset = turtle;
                     preset.setConfig();
-                    Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "Game preset : Turtle");
+                    Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "游戏预设 : 乌龟");
                     p.playSound(p.getLocation(), Sound.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, 2.0f, 1.0f);
                     Ready.ready.cancelVote();
 
@@ -113,7 +113,7 @@ public class GamePresetMenu extends Menu {
                     if (Objects.equals(i.getOwner(), "Dream")) {
                         p.playSound(p.getLocation(), Sound.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, 2.0f, 3.0f);
                         preset = dream;
-                        Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "Game preset : Dream");
+                        Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "游戏预设 : Dream");
                         preset.setConfig();
                         Ready.ready.cancelVote();
                     }

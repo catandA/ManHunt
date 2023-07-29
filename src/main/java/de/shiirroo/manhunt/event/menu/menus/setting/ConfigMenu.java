@@ -30,7 +30,7 @@ public class ConfigMenu extends Menu {
 
     @Override
     public String getMenuName() {
-        return ChatColor.GOLD + "Man" + ChatColor.RED + "Hunt" + ChatColor.RESET + " Configuration:";
+        return ChatColor.GOLD + "猎人" + ChatColor.RED + "游戏" + ChatColor.RESET + " 配置:";
     }
 
     @Override

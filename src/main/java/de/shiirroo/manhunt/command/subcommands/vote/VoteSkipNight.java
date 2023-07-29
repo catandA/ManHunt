@@ -11,7 +11,7 @@ import java.util.Objects;
 public class VoteSkipNight extends Vote {
     @Override
     protected VoteCreator voteCreator() {
-        return new VoteCreator(true, ManHuntPlugin.getPlugin(), ChatColor.GRAY + "Skipping Night " + ChatColor.GOLD + "VOTEPLAYERS " + ChatColor.BLACK + "| " + ChatColor.GOLD + "ONLINEPLAYERS" + ChatColor.GRAY + " [ " + ChatColor.GREEN + "TIMER " + ChatColor.GRAY + "]", 30);
+        return new VoteCreator(true, ManHuntPlugin.getPlugin(), ChatColor.GRAY + "跳过晚上" + ChatColor.GOLD + "VOTEPLAYERS " + ChatColor.BLACK + "| " + ChatColor.GOLD + "ONLINEPLAYERS" + ChatColor.GRAY + " [ " + ChatColor.GREEN + "TIMER " + ChatColor.GRAY + "]", 30);
     }
 
     @Override
@@ -33,6 +33,6 @@ public class VoteSkipNight extends Vote {
 
     @Override
     protected String requirementMessage() {
-        return ManHuntPlugin.getprefix() + "You can only skip at night time for day time.";
+        return ManHuntPlugin.getprefix() + "您只能在夜间跳过白天";
     }
 }

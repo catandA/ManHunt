@@ -58,7 +58,7 @@ public class TeamManager {
         String name = getName(teamName, player, player.getGameMode());
         Team team = this.board.getTeam(name);
         if (team == null)
-            throw new RuntimeException("No team with name " + name + " found");
+            throw new RuntimeException("没找到名字为" + name + "的队伍");
         team.addEntry(player.getName());
         changePlayerName(player, name);
     }
@@ -67,7 +67,7 @@ public class TeamManager {
         String name = getName(teamName, player, player.getGameMode());
         Team team = this.board.getTeam(name);
         if (team == null)
-            throw new RuntimeException("No team with name " + name + " found");
+            throw new RuntimeException("没找到名字为" + name + "的队伍");
         team.addEntry(player.getName());
     }
 
@@ -78,7 +78,7 @@ public class TeamManager {
         }
         Team team = this.board.getTeam(name);
         if (team == null)
-            throw new RuntimeException("No team with name " + name + " found");
+            throw new RuntimeException("没找到名字为" + name + "的队伍");
         team.addEntry(player.getName());
 
     }
@@ -126,7 +126,7 @@ public class TeamManager {
         String name = getName(teamName, player, player.getGameMode());
         Team team = board.getTeam(name);
         if (team == null)
-            throw new RuntimeException("No team with name " + teamName + " found");
+            throw new RuntimeException("没找到名字为" + name + "的队伍");
         team.removeEntry(player.getName());
         player.setDisplayName(player.getName());
     }
@@ -136,7 +136,7 @@ public class TeamManager {
         for (int i = 0; i != 3; i++) {
             Team team = this.board.getTeam(ManHuntRole.Speedrunner + "-" + i);
             if (team == null)
-                throw new RuntimeException("No team with name " + ManHuntRole.Speedrunner + " found");
+                throw new RuntimeException("没找到名字为" + ManHuntRole.Speedrunner + "的队伍");
             team.setOption(Team.Option.NAME_TAG_VISIBILITY, Team.OptionStatus.FOR_OTHER_TEAMS);
         }
     }

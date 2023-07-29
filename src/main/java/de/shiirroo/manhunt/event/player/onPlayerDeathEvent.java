@@ -23,7 +23,7 @@ public class onPlayerDeathEvent implements Listener {
         Player p = Bukkit.getPlayer(uuid);
         OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(uuid);
         if (p != null && p.isOnline()) {
-            p.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "You are now in the Spectator mode because you died");
+            p.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "你现在处于旁观者模式，因为你死了");
             Objects.requireNonNull(p).setGameMode(GameMode.SPECTATOR);
             chatColor = ManHuntPlugin.getGameData().getPlayerData().getPlayerRoleByUUID(p.getUniqueId()).getChatColor();
         } else chatColor = ManHuntPlugin.getGameData().getGamePlayer().getPlayerOfflineRole().get(uuid).getChatColor();
@@ -31,7 +31,7 @@ public class onPlayerDeathEvent implements Listener {
         if (ManHuntPlugin.getGameData().getGameStatus().getLivePlayerList().contains(uuid)) {
             ManHuntPlugin.getGameData().getGameStatus().getLivePlayerList().remove(uuid);
             ManHuntPlugin.getGameData().getGamePlayer().getPlayerWorldMap().remove(uuid);
-            Bukkit.getServer().broadcastMessage(ManHuntPlugin.getprefix() + chatColor + (p != null ? p.getName() : offlinePlayer.getName()) + ChatColor.GRAY + " has left this world");
+            Bukkit.getServer().broadcastMessage(ManHuntPlugin.getprefix() + chatColor + (p != null ? p.getName() : offlinePlayer.getName()) + ChatColor.GRAY + " 离开了这个世界");
             if (!ManHuntPlugin.getWorldreset().getWorldReset().isRunning()) {
                 Utilis.allSpeedrunnersDead();
             }
@@ -58,7 +58,7 @@ public class onPlayerDeathEvent implements Listener {
 
         } else if (ManHuntPlugin.getGameData().getPlayerData().getPlayerRoleByUUID(p.getUniqueId()) == ManHuntRole.Speedrunner) {
             e.setDeathMessage("");
-            Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "Speedrunner died :" + p.getDisplayName());
+            Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "速通者死亡 :" + p.getDisplayName());
             SpeedrunnerDied(p.getUniqueId());
         }
     }

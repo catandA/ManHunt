@@ -75,7 +75,7 @@ public class Ready extends SubCommand {
     }
 
     public static VoteCreator setReadyVote() {
-        VoteCreator readyVote = new VoteCreator(false, ManHuntPlugin.getPlugin(), ChatColor.GREEN + "游戏将会开始于" + ChatColor.GOLD + "TIMER", Config.getReadyStartTime());
+        VoteCreator readyVote = new VoteCreator(false, ManHuntPlugin.getPlugin(), ChatColor.GREEN + "比赛将开始于" + ChatColor.GOLD + "TIMER", Config.getReadyStartTime());
         readyVote.getbossBarCreator().onComplete(aBoolean -> {
                     ready = setReadyVote();
                     if (aBoolean) {

@@ -53,7 +53,7 @@ public class WorldBorderSize extends CustomGameMode implements Serializable {
         ItemStack itemStack = new ItemStack(Material.BARRIER);
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setDisplayName(DisplayName() + ChatColor.GRAY + ": " + ChatColor.GREEN + value);
-        itemMeta.setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Sets the world border size")));
+        itemMeta.setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "设置世界边界大小")));
         itemStack.setItemMeta(itemMeta);
         return itemStack;
     }

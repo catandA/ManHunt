@@ -145,7 +145,7 @@ public class CompassTracker implements Runnable {
                             ManHuntPlugin.getGameData().getGamePlayer().getIsFrozen().put(player.getUniqueId(), target.getUniqueId());
                         }
                         if (ManHuntPlugin.getGameData().getGamePlayer().getIsFrozen().get(player.getUniqueId()) != null) {
-                            target.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.DARK_AQUA + "Frozen " + ChatColor.GRAY + "by " + ChatColor.GOLD + player.getDisplayName()));
+                            target.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GRAY + "你被" + ChatColor.GOLD + player.getDisplayName() + ChatColor.DARK_AQUA + "冻结了"));
                             Utilis.drawLine(player.getEyeLocation(), target.getEyeLocation(), 1);
                             ManHuntPlugin.getGameData().getGamePlayer().getPlayerFrozenTime().put(target.getUniqueId(), (Calendar.getInstance().getTime().getTime() + 3500));
                         }
@@ -166,7 +166,7 @@ public class CompassTracker implements Runnable {
                 if (Config.getFreezeAssassin() && ManHuntPlugin.getGameData().getGamePlayer().getPlayerOfflineRole().get(player.getUniqueId()) != null && ManHuntPlugin.getGameData().getGamePlayer().getPlayerOfflineRole().get(player.getUniqueId()).equals(ManHuntRole.Speedrunner) && ManHuntPlugin.getGameData().getGamePlayer().getIsFrozen().get(player.getUniqueId()) != null && !player.isOnline()) {
                     Player p = Bukkit.getPlayer(ManHuntPlugin.getGameData().getGamePlayer().getIsFrozen().get(player.getUniqueId()));
                     if (p != null) {
-                        p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.DARK_AQUA + "Frozen " + ChatColor.GRAY + "by" + ChatColor.DARK_GREEN + " Zombie " + ChatColor.GOLD + (ManHuntPlugin.getGameData().getGamePlayer().getPlayerOfflineRole().get(player.getUniqueId()).getChatColor() + player.getName())));
+                        p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GRAY + "你被" + ChatColor.DARK_GREEN + " 僵尸 " + ChatColor.GOLD + (ManHuntPlugin.getGameData().getGamePlayer().getPlayerOfflineRole().get(player.getUniqueId()).getChatColor() + player.getName() + ChatColor.DARK_AQUA + "冻结了")));
                     }
                 }
             }

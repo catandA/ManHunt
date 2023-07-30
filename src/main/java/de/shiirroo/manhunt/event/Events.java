@@ -110,16 +110,16 @@ public class Events implements Listener, Serializable {
         if (ManHuntPlugin.getGameData().getGameStatus().isReadyForVote())
             event.setMotd(ManHuntPlugin.getprefix() + "猎杀还没" + ChatColor.GREEN + "开始.." + "\n" + ManHuntPlugin.getprefix() + ChatColor.GREEN + "快进来玩");
         else if (Ready.ready.getbossBarCreator().isRunning() && Ready.ready.getbossBarCreator().getTimer() > 3)
-            event.setMotd(ManHuntPlugin.getprefix() + "猎杀" + ChatColor.GREEN + " 即将开始于" + ChatColor.GOLD + Ready.ready.getbossBarCreator().getTimer() + ChatColor.GREEN + " 秒\n" + ManHuntPlugin.getprefix() + ChatColor.GREEN + "快进来玩");
+            event.setMotd(ManHuntPlugin.getprefix() + "猎杀" + ChatColor.GREEN + " 将在" + ChatColor.GOLD + Ready.ready.getbossBarCreator().getTimer() + ChatColor.GREEN + " 秒后开始\n" + ManHuntPlugin.getprefix() + ChatColor.GREEN + "快进来玩");
         else if (Ready.ready.getbossBarCreator().isRunning() && Ready.ready.getbossBarCreator().getTimer() <= 3)
-            event.setMotd(ManHuntPlugin.getprefix() + "猎杀" + ChatColor.GREEN + " 即将开始于" + ChatColor.GOLD + Ready.ready.getbossBarCreator().getTimer() + ChatColor.GREEN + " 秒\n" + ManHuntPlugin.getprefix() + ChatColor.GREEN + "你不许参加淫趴");
+            event.setMotd(ManHuntPlugin.getprefix() + "猎杀" + ChatColor.GREEN + " 将在" + ChatColor.GOLD + Ready.ready.getbossBarCreator().getTimer() + ChatColor.GREEN + " 秒后开始\n" + ManHuntPlugin.getprefix() + ChatColor.GREEN + "你不许参加淫趴");
         else if (ManHuntPlugin.getGameData().getGameStatus().isStarting())
-            event.setMotd(ManHuntPlugin.getprefix() + "猎杀" + ChatColor.YELLOW + " 即将开始于" + ChatColor.GOLD + StartGame.bossBarGameStart.getTimer() + ChatColor.YELLOW + " 秒\n" + ManHuntPlugin.getprefix() + ChatColor.YELLOW + (player != null && player.isWhitelisted() ? ChatColor.GOLD + player.getName() + ChatColor.GREEN + "快进来玩" : ChatColor.RED + "你不许参加淫趴"));
+            event.setMotd(ManHuntPlugin.getprefix() + "猎杀" + ChatColor.YELLOW + " 将在" + ChatColor.GOLD + StartGame.bossBarGameStart.getTimer() + ChatColor.YELLOW + " 秒后开始\n" + ManHuntPlugin.getprefix() + ChatColor.YELLOW + (player != null && player.isWhitelisted() ? ChatColor.GOLD + player.getName() + ChatColor.GREEN + "快进来玩" : ChatColor.RED + "你不许参加淫趴"));
         else if (!ManHuntPlugin.getGameData().getGamePause().isPause()) {
-            event.setMotd(ManHuntPlugin.getprefix() + "猎杀" + ChatColor.RED + " 开始于: " + ChatColor.GRAY + getTimeString(true, GameTimes.getStartTime(ManHuntPlugin.getGameData().getGameStatus().getGameStartTime(), ManHuntPlugin.getGameData().getGamePause().getPauseList(), ManHuntPlugin.getGameData().getGamePause().getUnPauseList())) +
+            event.setMotd(ManHuntPlugin.getprefix() + "猎杀" + ChatColor.RED + " 已经进行了: " + ChatColor.GRAY + getTimeString(true, GameTimes.getStartTime(ManHuntPlugin.getGameData().getGameStatus().getGameStartTime(), ManHuntPlugin.getGameData().getGamePause().getPauseList(), ManHuntPlugin.getGameData().getGamePause().getUnPauseList())) +
                     "\n" + ManHuntPlugin.getprefix() + ChatColor.YELLOW + (player != null && player.isWhitelisted() ? ChatColor.GOLD + player.getName() + ChatColor.GREEN + " 快进来玩" : ChatColor.RED + "你不许参加淫趴"));
         } else
-            event.setMotd(ManHuntPlugin.getprefix() + "猎杀" + ChatColor.AQUA + " 暂停于: " + ChatColor.GRAY + getTimeString(true, Calendar.getInstance().getTime().getTime() - ManHuntPlugin.getGameData().getGamePause().getPauseList().get((ManHuntPlugin.getGameData().getGamePause().getPauseList().size() - 1))) + "\n" + ManHuntPlugin.getprefix() + ChatColor.YELLOW + (player != null && player.isWhitelisted() ? ChatColor.GOLD + player.getName() + ChatColor.GREEN + "快进来玩" : ChatColor.RED + "你不许参加淫趴"));
+            event.setMotd(ManHuntPlugin.getprefix() + "猎杀" + ChatColor.AQUA + " 已经暂停了: " + ChatColor.GRAY + getTimeString(true, Calendar.getInstance().getTime().getTime() - ManHuntPlugin.getGameData().getGamePause().getPauseList().get((ManHuntPlugin.getGameData().getGamePause().getPauseList().size() - 1))) + "\n" + ManHuntPlugin.getprefix() + ChatColor.YELLOW + (player != null && player.isWhitelisted() ? ChatColor.GOLD + player.getName() + ChatColor.GREEN + "快进来玩" : ChatColor.RED + "你不许参加淫趴"));
 
         if (!ManHuntPlugin.getGameData().getGameStatus().isGame()) {
             event.setMaxPlayers(event.getNumPlayers());

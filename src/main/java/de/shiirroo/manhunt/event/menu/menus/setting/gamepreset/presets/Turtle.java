@@ -44,7 +44,7 @@ public class Turtle extends GamePreset implements Serializable {
         ItemMeta im = itemStack.getItemMeta();
         im.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + ChatColor.UNDERLINE + "Turtle");
         List<String> loreString = Lists.newArrayList("", ChatColor.GOLD + "➤ " + ChatColor.GRAY + "玩" + ChatColor.AQUA + "乌龟" + ChatColor.GRAY + "猎人模式",
-                "", ChatColor.YELLOW + "● " + ChatColor.GOLD + "min. " + (Integer.parseInt(getSpeedRunnersMaxSize())) + " " + ManHuntRole.Speedrunner.getChatColor() + ManHuntRole.Speedrunner,
+                "", ChatColor.YELLOW + "● " + ChatColor.GOLD + "最少 " + (Integer.parseInt(getSpeedRunnersMaxSize())) + " " + ManHuntRole.Speedrunner.getChatColor() + ManHuntRole.Speedrunner,
                 ChatColor.YELLOW + "● " + ChatColor.GOLD + getAssassinMaxSize() + "x " + ManHuntRole.Assassin.getChatColor() + ManHuntRole.Assassin, ChatColor.YELLOW
                         + "● " + ChatColor.GOLD + getHunterMaxSize() + "x " + ManHuntRole.Hunter.getChatColor() + ManHuntRole.Hunter,
                 "");

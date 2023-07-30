@@ -97,7 +97,7 @@ public class SettingsMenu extends Menu implements Serializable {
     private ItemStack ConfigGame() {
         ItemStack GroupMenuGUI = new ItemStack(Material.COMPARATOR);
         ItemMeta im = GroupMenuGUI.getItemMeta();
-        im.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Man" + ChatColor.RED + ChatColor.BOLD + "Hunt" + ChatColor.DARK_GRAY + ChatColor.BOLD + " Configuration");
+        im.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "猎人" + ChatColor.RED + ChatColor.BOLD + "游戏" + ChatColor.DARK_GRAY + ChatColor.BOLD + " 配置");
         if(!getPlayer().isOp()) im.setLore(List.of("", ChatColor.GOLD + "➤ "  + ChatColor.GRAY + "浏览模式"));
         else im.setLore(List.of("", ChatColor.GOLD + "➤ "  + ChatColor.GREEN + "编辑模式"));
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
@@ -128,9 +128,9 @@ public class SettingsMenu extends Menu implements Serializable {
     private ItemStack GamePresets() {
         ItemStack GroupMenuGUI = new ItemStack(Material.ENCHANTED_BOOK);
         ItemMeta im = GroupMenuGUI.getItemMeta();
-        im.setDisplayName(ChatColor.BLUE +""+ ChatColor.BOLD + "Game Preset");
-        if(!getPlayer().isOp()) im.setLore(List.of("", ChatColor.GOLD + "➤ "  + ChatColor.GRAY + "Viewing Mode"));
-        else im.setLore(List.of("", ChatColor.GOLD + "➤ "  + ChatColor.GREEN + "Edit Mode"));
+        im.setDisplayName(ChatColor.BLUE +""+ ChatColor.BOLD + "游戏预设");
+        if(!getPlayer().isOp()) im.setLore(List.of("", ChatColor.GOLD + "➤ "  + ChatColor.GRAY + "浏览模式"));
+        else im.setLore(List.of("", ChatColor.GOLD + "➤ "  + ChatColor.GREEN + "编辑模式"));
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         GroupMenuGUI.setItemMeta(im);
         return GroupMenuGUI;

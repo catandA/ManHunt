@@ -58,7 +58,7 @@ public class StartGame extends SubCommand {
         if (ManHuntPlugin.getGameData().getGameStatus().isGame()) {
             player.sendMessage(ManHuntPlugin.getprefix() + "比赛正在进行");
         } else if(args.length == 2 && args[1].equalsIgnoreCase("debug")) {
-            player.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "You start the game in debug mode, many functions are not possible. Don't forget to give yourself a group!");
+            player.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "您在调试模式下启动游戏，许多功能不可用的。别忘了给自己一个队伍!");
             Start();
         }else if(Bukkit.getOnlinePlayers().size() >= 2) {
             if (GamePresetMenu.preset.setPlayersGroup()) {
@@ -87,12 +87,12 @@ public class StartGame extends SubCommand {
             ManHuntPlugin.getGameData().getGameMode().getRandomBlocks().execute();
             ManHuntPlugin.getGameData().getGameMode().getRandomItems().execute();
             ManHuntPlugin.getGameData().getGameMode().getRandomTP().execute();
-            Bukkit.getLogger().info(ManHuntPlugin.getprefix() + ChatColor.GRAY + "速通者可以开始润了");
+            Bukkit.getLogger().info(ManHuntPlugin.getprefix() + ChatColor.GRAY + "速通者快润!!!");
         }
     }
 
     public static BossBarCreator createBossBarGameStart() {
-        return new BossBarCreator(ManHuntPlugin.getPlugin(), ChatColor.DARK_RED + "猎杀" + ChatColor.RED + "将会开始于" + ChatColor.GOLD + "TIMER", Config.getHuntStartTime())
+        return new BossBarCreator(ManHuntPlugin.getPlugin(), ChatColor.DARK_RED + "猎杀" + ChatColor.RED + "将在 " + ChatColor.GOLD + "TIMER" + ChatColor.RED + " 秒后开始", Config.getHuntStartTime())
                 .onComplete(vote -> {
                     bossBarGameStart = createBossBarGameStart();
                     ManHuntPlugin.getGameData().getGameStatus().setStarting(false);

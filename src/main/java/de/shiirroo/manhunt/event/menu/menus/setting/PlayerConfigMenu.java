@@ -100,21 +100,21 @@ public class PlayerConfigMenu extends Menu {
     public void setMenuItems() {
 
         if (ManHuntPlugin.getGameData().getGamePlayer().getPlayerShowGameTimer().contains(uuid)) {
-            inventory.setItem(10, Yes("GameTimer", gameTimer));
+            inventory.setItem(10, Yes("游戏计时器", gameTimer));
         } else {
-            inventory.setItem(10, NO("GameTimer", gameTimer));
+            inventory.setItem(10, NO("游戏计时器", gameTimer));
         }
 
         if (ManHuntPlugin.getGameData().getGamePlayer().getTeamchat().contains(uuid)) {
-            inventory.setItem(12, Yes("TeamChat", teamChat));
+            inventory.setItem(12, Yes("队伍聊天", teamChat));
         } else {
-            inventory.setItem(12, NO("TeamChat", teamChat));
+            inventory.setItem(12, NO("队伍聊天", teamChat));
         }
 
         if (Objects.requireNonNull(Bukkit.getPlayer(uuid)).getGameMode().equals(GameMode.SPECTATOR)) {
-            inventory.setItem(14, Yes("Spectator", spectator));
+            inventory.setItem(14, Yes("观察模式", spectator));
         } else {
-            inventory.setItem(14, NO("Spectator", spectator));
+            inventory.setItem(14, NO("观察模式", spectator));
         }
         inventory.setItem(16, CommingSoon());
 

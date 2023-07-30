@@ -37,7 +37,7 @@ public class GameConfig implements Serializable {
         newConfigCreatorsSett.add(new ConfigCreator("冻结刺客").configCreator(plugin)
                 .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "速通者盯着刺客的时候能将其冻结"))));
         newConfigCreatorsSett.add(new ConfigCreator("BOSS栏指南针").configCreator(plugin)
-                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "在BOSS栏显示速通者的位置", "", ChatColor.DARK_RED + "! ALPHA TEST !"))));
+                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "在BOSS栏显示速通者的位置", "", ChatColor.DARK_RED + "! 不稳定测试 !"))));
         newConfigCreatorsSett.add(new ConfigCreator("显示进度").configCreator(plugin)
                 .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "显示", ChatColor.GRAY + "玩家的进度"))));
         newConfigCreatorsSett.add(new ConfigCreator("指南针自动更新").configCreator(plugin)

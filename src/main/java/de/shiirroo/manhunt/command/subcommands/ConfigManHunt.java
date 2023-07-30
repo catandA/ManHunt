@@ -127,7 +127,7 @@ public class ConfigManHunt extends SubCommand {
 
     public static void resetPreset(Player player) {
         if (!GamePresetMenu.preset.presetName().equalsIgnoreCase(new Custom().presetName())) {
-            Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "Game preset : Custom");
+            Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "游戏预设 : 自定义");
             player.sendMessage(ManHuntPlugin.getprefix() + "您更改了配置，游戏预设已更改回自定义");
             GamePresetMenu.preset = new Custom();
             GamePresetMenu.setFooderPreset(player);

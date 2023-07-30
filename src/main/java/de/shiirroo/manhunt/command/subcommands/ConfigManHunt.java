@@ -174,15 +174,15 @@ public class ConfigManHunt extends SubCommand {
 
     public static void AnvilGUI(Player player, String DisplayText, String ConfigValue, Integer lowestValue, Integer highestValue, String addon, Integer current) {
         new AnvilGUI.Builder()
-                .onComplete((p, text) -> {
-                    text = text.replace(DisplayText + " ", "");
-                    if (Utilis.isNumeric(text)) {
-                        Integer input = Integer.parseInt(text);
+                .onClick((slot, stateSnapshot) -> {
+                    String stateSnapshotString = stateSnapshot.getText().replace(DisplayText + " ", "");
+                    if (Utilis.isNumeric(stateSnapshotString)) {
+                        Integer input = Integer.parseInt(stateSnapshotString);
                         if (input >= lowestValue && input <= highestValue) {
                             ConfigCreator configCreator = ManHuntPlugin.getGameData().getGameConfig().getConfigCreators(ConfigValue);
                             if (configCreator != null) {
                                 configCreator.setConfigSetting(input, ManHuntPlugin.getPlugin());
-                                p.sendMessage(ManHuntPlugin.getprefix() + ChatColor.GOLD + ConfigValue + ChatColor.GRAY + " switched to" + " " + ChatColor.GREEN + input + " " + ChatColor.GRAY + addon);
+                                stateSnapshot.getPlayer().sendMessage(ManHuntPlugin.getprefix() + ChatColor.GOLD + ConfigValue + ChatColor.GRAY + " switched to" + " " + ChatColor.GREEN + input + " " + ChatColor.GRAY + addon);
                                 for (UUID uuid : SettingsMenu.ConfigMenu.keySet()) {
                                     SettingsMenu.ConfigMenu.get(uuid).setMenuItems();
                                 }
@@ -204,15 +204,15 @@ public class ConfigManHunt extends SubCommand {
                                 if (GamePresetMenu.preset.presetName().equalsIgnoreCase(new Custom().presetName()) && GamePresetMenu.customHashMap != null) {
                                     GamePresetMenu.customHashMap.put(ConfigValue, input);
                                 }
-                                if (!ConfigValue.equalsIgnoreCase("MaxPlayerSize")) resetPreset(p);
+                                if (!ConfigValue.equalsIgnoreCase("MaxPlayerSize")) resetPreset(stateSnapshot.getPlayer());
                             }
-                            if (SettingsMenu.ConfigMenu != null && SettingsMenu.ConfigMenu.get(p.getUniqueId()) != null)
-                                SettingsMenu.ConfigMenu.get(p.getUniqueId()).open();
+                            if (SettingsMenu.ConfigMenu != null && SettingsMenu.ConfigMenu.get(stateSnapshot.getPlayer().getUniqueId()) != null)
+                                SettingsMenu.ConfigMenu.get(stateSnapshot.getPlayer().getUniqueId()).open();
                             return AnvilGUI.Response.close();
                         }
-                        p.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "无效输入" + ChatColor.GRAY + "输入一个在此范围内的数" + ChatColor.GOLD + lowestValue + ChatColor.GRAY + " - " + ChatColor.GOLD + highestValue);
+                        stateSnapshot.getPlayer().sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "无效输入" + ChatColor.GRAY + "输入一个在此范围内的数" + ChatColor.GOLD + lowestValue + ChatColor.GRAY + " - " + ChatColor.GOLD + highestValue);
                     } else {
-                        p.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "无效输入");
+                        stateSnapshot.getPlayer().sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "无效输入");
                     }
                     return AnvilGUI.Response.text(ChatColor.GRAY + DisplayText + " " + ChatColor.GREEN + ManHuntPlugin.getGameData().getGameConfig().getConfigCreators(ConfigValue).getConfigSetting());
                 })

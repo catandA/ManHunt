@@ -47,23 +47,23 @@ public abstract class CustomGameMode implements Serializable {
 
     public void openAnvilGUI(Player player, String addon) {
         new AnvilGUI.Builder()
-                .onComplete((p, text) -> {
-                    text = text.replace(DisplayNameToLong(DisplayName()) + " ", "");
-                    if (Utilis.isNumeric(text)) {
-                        int input = Integer.parseInt(text);
+                .onClick((slot, stateSnapshot) -> {
+                    String stateSnapshotString = stateSnapshot.getText().replace(DisplayNameToLong(DisplayName()) + " ", "");
+                    if (Utilis.isNumeric(stateSnapshotString)) {
+                        int input = Integer.parseInt(stateSnapshotString);
                         if (input >= (int) minValue() && input <= (int) maxValue()) {
                             for (UUID uuid : SettingsMenu.GameMode.keySet()) {
                                 SettingsMenu.GameMode.get(uuid).setMenuItems();
                             }
-                            p.sendMessage(ManHuntPlugin.getprefix() + ChatColor.GOLD + value + ChatColor.GRAY + " switched to" + " " + ChatColor.GREEN + input + " " + ChatColor.GRAY + addon);
+                            stateSnapshot.getPlayer().sendMessage(ManHuntPlugin.getprefix() + ChatColor.GOLD + value + ChatColor.GRAY + " switched to" + " " + ChatColor.GREEN + input + " " + ChatColor.GRAY + addon);
                             value = input;
-                            if (SettingsMenu.GameMode.get(p.getUniqueId()) != null)
-                                SettingsMenu.GameMode.get(p.getUniqueId()).open();
+                            if (SettingsMenu.GameMode.get(stateSnapshot.getPlayer().getUniqueId()) != null)
+                                SettingsMenu.GameMode.get(stateSnapshot.getPlayer().getUniqueId()).open();
                             return AnvilGUI.Response.close();
                         }
-                        p.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "This is an invalid input." + ChatColor.GRAY + " Enter a number between " + ChatColor.GOLD + minValue() + ChatColor.GRAY + " - " + ChatColor.GOLD + maxValue());
+                        stateSnapshot.getPlayer().sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "This is an invalid input." + ChatColor.GRAY + " Enter a number between " + ChatColor.GOLD + minValue() + ChatColor.GRAY + " - " + ChatColor.GOLD + maxValue());
                     } else {
-                        p.sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "This is an invalid input");
+                        stateSnapshot.getPlayer().sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "This is an invalid input");
                     }
                     return AnvilGUI.Response.text(ChatColor.GRAY + DisplayNameToLong(DisplayName()) + " " + ChatColor.GREEN + value);
                 })

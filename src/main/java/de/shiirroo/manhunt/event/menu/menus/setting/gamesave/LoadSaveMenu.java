@@ -147,7 +147,7 @@ public class LoadSaveMenu extends Menu {
             listLore.add(ChatColor.YELLOW + "➢ " + ManHuntRole.Hunter.getChatColor() + "猎人 : " + ChatColor.GREEN + gameData.getPlayerData().getPlayersByRole(ManHuntRole.Hunter).size());
             listLore.add(ChatColor.YELLOW + "➢ " + ManHuntRole.Assassin.getChatColor() + "刺客 : " + ChatColor.GREEN + gameData.getPlayerData().getPlayersByRole(ManHuntRole.Assassin).size());
             listLore.add("");
-            listLore.add(ChatColor.YELLOW + "➢ " + ChatColor.GOLD + "剩余时间 :" + ChatColor.GREEN + " " + Events.getTimeString(false, ((((Integer) gameData.getGameConfig().getConfigCreators("GameResetTime").getConfigSetting()) * 60 * 60) - gameData.getGameStatus().getGameElapsedTime()) * 1000));
+            listLore.add(ChatColor.YELLOW + "➢ " + ChatColor.GOLD + "剩余时间 :" + ChatColor.GREEN + " " + Events.getTimeString(false, ((((Integer) gameData.getGameConfig().getConfigCreators("重置时间").getConfigSetting()) * 60 * 60) - gameData.getGameStatus().getGameElapsedTime()) * 1000));
 
         }
         listLore.addAll(Arrays.asList("", ChatColor.YELLOW + "● 创建于: " + ChatColor.GREEN + findSaveGame().getDateString()));

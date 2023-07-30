@@ -24,35 +24,35 @@ public class GameConfig implements Serializable {
     public GameConfig(Plugin plugin) {
         LinkedHashSet<ConfigCreator> newConfigCreatorsSett = new LinkedHashSet<>();
         Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "配置已加载");
-        newConfigCreatorsSett.add(new ConfigCreator("HuntStartTime", 5, 999, 120).configCreator(plugin)
+        newConfigCreatorsSett.add(new ConfigCreator("猎人等待时间", 5, 999, 120).configCreator(plugin)
                 .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "猎人们可以开始狩猎的时间"))));
-        newConfigCreatorsSett.add(new ConfigCreator("AssassinsInstaKill").configCreator(plugin)
+        newConfigCreatorsSett.add(new ConfigCreator("刺客即杀").configCreator(plugin)
                 .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "刺客可以秒杀速通者,", ChatColor.GRAY + "或者每次攻击移除一件护甲"))));
-        newConfigCreatorsSett.add(new ConfigCreator("CompassTracking").configCreator(plugin)
+        newConfigCreatorsSett.add(new ConfigCreator("追踪指南针").configCreator(plugin)
                 .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "在主世界用指南针指向速通者"))));
-        newConfigCreatorsSett.add(new ConfigCreator("GiveCompass").configCreator(plugin)
+        newConfigCreatorsSett.add(new ConfigCreator("发放指南针").configCreator(plugin)
                 .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "在游戏开始的时候", ChatColor.GRAY + "给猎人指南针"))));
-        newConfigCreatorsSett.add(new ConfigCreator("CompassParticleToSpeedrunner").configCreator(plugin)
+        newConfigCreatorsSett.add(new ConfigCreator("粒子效果追踪").configCreator(plugin)
                 .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "用粒子效果显示速通者在哪", ChatColor.GRAY + "只在手上有指南针的时候有效"))));
-        newConfigCreatorsSett.add(new ConfigCreator("FreezeAssassin").configCreator(plugin)
-                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Freeze Assassins of the Gears of Speedrunners."))));
-        newConfigCreatorsSett.add(new ConfigCreator("BossbarCompass").configCreator(plugin)
+        newConfigCreatorsSett.add(new ConfigCreator("冻结刺客").configCreator(plugin)
+                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "速通者盯着刺客的时候能将其冻结"))));
+        newConfigCreatorsSett.add(new ConfigCreator("BOSS栏指南针").configCreator(plugin)
                 .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "在BOSS栏显示速通者的位置", "", ChatColor.DARK_RED + "! ALPHA TEST !"))));
-        newConfigCreatorsSett.add(new ConfigCreator("ShowAdvancement").configCreator(plugin)
+        newConfigCreatorsSett.add(new ConfigCreator("显示进度").configCreator(plugin)
                 .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "显示", ChatColor.GRAY + "玩家的进度"))));
-        newConfigCreatorsSett.add(new ConfigCreator("CompassAutoUpdate").configCreator(plugin)
+        newConfigCreatorsSett.add(new ConfigCreator("指南针自动更新").configCreator(plugin)
                 .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "指南针自动更新"))));
-        newConfigCreatorsSett.add(new ConfigCreator("CompassTriggerTimer", 5, 300, 15).configCreator(plugin)
+        newConfigCreatorsSett.add(new ConfigCreator("指南针激活间隔", 5, 300, 15).configCreator(plugin)
                 .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "猎人能更新指南针的时间"))));
-        newConfigCreatorsSett.add(new ConfigCreator("SpeedrunnerOpportunity", 1, 99, 40).configCreator(plugin)
+        newConfigCreatorsSett.add(new ConfigCreator("速通者几率", 1, 99, 40).configCreator(plugin)
                 .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "成为速通者的百分比概率"))));
-        newConfigCreatorsSett.add(new ConfigCreator("离开玩家生成僵尸").configCreator(plugin)
+        newConfigCreatorsSett.add(new ConfigCreator("玩家离开时生成僵尸").configCreator(plugin)
                 .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "有玩家退出的时候生成一个玩家僵尸"))));
-        newConfigCreatorsSett.add(new ConfigCreator("ReadyStartTime", 5, 120, 15).configCreator(plugin)
+        newConfigCreatorsSett.add(new ConfigCreator("准备时间", 5, 120, 15).configCreator(plugin)
                 .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "游戏开始前的准备时间"))));
-        newConfigCreatorsSett.add(new ConfigCreator("GameResetTime", 2, 100, 8).configCreator(plugin)
-                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Time in hours when the game ", ChatColor.GRAY + "will reset itself."))));
-        newConfigCreatorsSett.add(new ConfigCreator("MaxPlayerSize", 2, 100, 10).configCreator(plugin)
+        newConfigCreatorsSett.add(new ConfigCreator("重置时间", 2, 100, 8).configCreator(plugin)
+                .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "游戏将自行重置的时间(以小时为单位)"))));
+        newConfigCreatorsSett.add(new ConfigCreator("最大玩家数", 2, 100, 10).configCreator(plugin)
                 .setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "猎杀的", ChatColor.GRAY + "最大玩家数"))));
         Bukkit.getLogger().info(ManHuntPlugin.getprefix() + "配置已重载");
         plugin.saveConfig();

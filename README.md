@@ -46,23 +46,23 @@ Screenshots:
 Config:
 ----------------Speedrunner Config-------------------------
 
-SpeedrunnerOpportunity: Percentage chance to become a speedrunner
+速通者几率: Percentage chance to become a speedrunner
 
 ----------------Assassins Config-------------------------
 
-AssassinsInstaKill : Assassins can Instakill Speedrunners | or remove one piece of armor each hit
+刺客即杀 : Assassins can Instakill Speedrunners | or remove one piece of armor each hit
 
-FreezeAssassin : Freeze Assassins of the Gears of Speedrunners
+冻结刺客 : Freeze Assassins of the Gears of Speedrunners
 
 ----------------Hunters Tracking Config----------------------
 
-GiveCompass: Give Hunters a compass at the start of the game
+发放指南针: Give Hunters a compass at the start of the game
 
-CompassTracking: Point Speedrunners at your compass in the overworld
+追踪指南针: Point Speedrunners at your compass in the overworld
 
-CompassTriggerTimer: Timer when Hunters can Update there Compass
+指南针激活间隔: Timer when Hunters can Update there Compass
 
-CompassAutoUpdate: Compass updates automatically |!
+指南针自动更新: Compass updates automatically |!
 
 BossbarCompass:  Give Hunters a compass in the boss bar where the Speedrunners are! ALPHA TEST ! Do not use !!!
 
@@ -70,14 +70,14 @@ CompassParticleInWorld: Show Particle where the Speedrunners are in the overworl
 
 CompassParticleInNether: Show Particle where the Speedrunners are in the nether. | Only works with a compass in hand
 
-HuntStartTime: Start time when the hunters can hunt
+猎人等待时间: Start time when the hunters can hunt
 
 ----------------------------Game Config----------------------
 
-ShowAdvancement: Show whether a player has received an advancement
+显示进度: Show whether a player has received an advancement
 
 isReset: Reset the World next startup
 
-ReadyStartTime: Vote time until the game starts
+准备时间: Vote time until the game starts
 
-GameResetTime: Time in hours when the game will reset itself
+重置时间: Time in hours when the game will reset itself

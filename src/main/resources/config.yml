@@ -4,59 +4,59 @@
 # .
 # .----------------Speedrunner Config-------------------------
 # .
-# SpeedrunnerOpportunity: Percentage chance to become a speedrunner
+# 速通者几率: Percentage chance to become a speedrunner
 # .
 # .----------------Assassins Config-------------------------
 # .
-# AssassinsInstaKill : Assassins can Instakill Speedrunners | or remove one piece of armor each hit
+# 刺客即杀 : Assassins can Instakill Speedrunners | or remove one piece of armor each hit
 # .
-# FreezeAssassin : Freeze Assassins of the Gears of Speedrunners
+# 冻结刺客 : Freeze Assassins of the Gears of Speedrunners
 # .
 # ----------------Hunters Tracking Config----------------------
 # .
-# GiveCompass: Give Hunters a compass at the start of the game
+# 发放指南针: Give Hunters a compass at the start of the game
 # .
-# CompassTracking: Point Speedrunners at your compass in the overworld
+# 追踪指南针: Point Speedrunners at your compass in the overworld
 # .
-# CompassTriggerTimer: Timer when Hunters can Update there Compass
+# 指南针激活间隔: Timer when Hunters can Update there Compass
 # .
-# CompassAutoUpdate: Compass updates automatically
+# 指南针自动更新: Compass updates automatically
 # .
-# BossbarCompass:  Give Hunters a compass in the boss bar where the Speedrunners ! ALPHA TEST !
+# BOSS栏指南针:  Give Hunters a compass in the boss bar where the Speedrunners ! ALPHA TEST !
 # .
-# CompassParticleToSpeedrunner: Show Particle where the Speedrunners are. | Only works with a compass in hand
+# 粒子效果追踪: Show Particle where the Speedrunners are. | Only works with a compass in hand
 # .
-# HuntStartTime: Start time when the hunters can hunt
+# 猎人等待时间: Start time when the hunters can hunt
 # .
 # ----------------------------Game Config----------------------
 # .
-# ShowAdvancement: Show whether a player has received an advancement
+# 显示进度: Show whether a player has received an advancement
 # .
 # isReset: Reset the World next startup
 # .
-# ReadyStartTime: Ready time until the game starts
+# 准备时间: Ready time until the game starts
 # .
-# GameResetTime: Time in hours when the game will reset itself
+# 重置时间: Time in hours when the game will reset itself
 # .
-# SpawnPlayerLeaveZombie: Spawn a Player Zombie when a player leaves the game.
+# 玩家离开时生成僵尸: Spawn a Player Zombie when a player leaves the game.
 # .
 # ----------------------------CONFIG----------------------------
-AssassinsInstaKill: false
-FreezeAssassin: true
-GiveCompass: true
-CompassTracking: true
-CompassAutoUpdate: false
-BossbarCompass: false
-CompassParticleToSpeedrunner: false
-HuntStartTime: 120
-CompassTriggerTimer: 15
-ShowAdvancement: true
+刺客即杀: false
+冻结刺客: true
+发放指南针: true
+追踪指南针: true
+指南针自动更新: false
+BOSS栏指南针: false
+粒子效果追踪: false
+猎人等待时间: 120
+指南针激活间隔: 15
+显示进度: true
 isReset: false
-SpeedrunnerOpportunity: 40
-ReadyStartTime: 15
-GameResetTime: 8
-MaxPlayerSize: 10
-SpawnPlayerLeaveZombie: false
+速通者几率: 40
+准备时间: 15
+重置时间: 8
+最大玩家数: 10
+玩家离开时生成僵尸: false
 isGameRunning: false
 LoadSaveGame: -1
 AutoSave: true

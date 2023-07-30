@@ -116,7 +116,7 @@ public final class ManHuntPlugin extends JavaPlugin implements Serializable {
         plugin.getServer().setDefaultGameMode(GameMode.ADVENTURE);
         plugin.getServer().setSpawnRadius(0);
         for (World w : Bukkit.getWorlds()) {
-            w.setGameRule(GameRule.ANNOUNCE_ADVANCEMENTS, plugin.getConfig().getBoolean("ShowAdvancement"));
+            w.setGameRule(GameRule.ANNOUNCE_ADVANCEMENTS, plugin.getConfig().getBoolean("显示进度"));
             w.setPVP(false);
             w.setTime(0);
             w.setDifficulty(Difficulty.PEACEFUL);
@@ -310,8 +310,8 @@ public final class ManHuntPlugin extends JavaPlugin implements Serializable {
             }
         }
 
-        if (getConfig().getBoolean("BossbarCompass")) {
-            getConfig().set("BossbarCompass", false);
+        if (getConfig().getBoolean("BOSS栏指南针")) {
+            getConfig().set("BOSS栏指南针", false);
         }
         if (getConfig().getBoolean("isReset")) {
             worldreset.reset();

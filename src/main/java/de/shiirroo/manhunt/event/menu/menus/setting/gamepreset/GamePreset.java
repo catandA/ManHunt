@@ -42,8 +42,8 @@ public abstract class GamePreset {
         if (makeConfig() != null)
             makeConfig().forEach((s, o) -> {
                 ManHuntPlugin.getGameData().getGameConfig().getConfigCreators(s).setConfigSetting(o, ManHuntPlugin.getPlugin());
-                if (s.equalsIgnoreCase("ReadyStartTime")) Ready.ready.getbossBarCreator().setTime((Integer) o);
-                if (s.equalsIgnoreCase("HuntStartTime")) StartGame.bossBarGameStart.setTime((Integer) o);
+                if (s.equalsIgnoreCase("准备时间")) Ready.ready.getbossBarCreator().setTime((Integer) o);
+                if (s.equalsIgnoreCase("猎人等待时间")) StartGame.bossBarGameStart.setTime((Integer) o);
             });
     }
 }

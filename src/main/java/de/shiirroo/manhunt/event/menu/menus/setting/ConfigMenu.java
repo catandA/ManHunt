@@ -53,7 +53,7 @@ public class ConfigMenu extends Menu {
         Player p = (Player) e.getWhoClicked();
         if (p.isOp()) {
             for (ConfigCreator configCreator : ManHuntPlugin.getGameData().getGameConfig().getConfigCreatorsSett()) {
-                if (!configCreator.getConfigName().equalsIgnoreCase("BossbarCompass")) {
+                if (!configCreator.getConfigName().equalsIgnoreCase("BOSS栏指南针")) {
                     if (configCreator.getConfigSetting() instanceof Integer) {
                         if (Objects.equals(e.getCurrentItem(), Time(configCreator))) {
                             ConfigManHunt.AnvilGUISetup(p, configCreator);
@@ -61,7 +61,7 @@ public class ConfigMenu extends Menu {
                     } else if (configCreator.getConfigSetting() instanceof Boolean) {
                         if (Objects.equals(e.getCurrentItem(), Yes(configCreator))) {
                             ConfigManHunt.resetPreset(p);
-                            if (configCreator.getConfigName().equalsIgnoreCase("ShowAdvancement"))
+                            if (configCreator.getConfigName().equalsIgnoreCase("显示进度"))
                                 ConfigManHunt.ShowAdvancement(false);
                             if (GamePresetMenu.preset.presetName().equalsIgnoreCase(new Custom().presetName()) && GamePresetMenu.customHashMap != null) {
                                 GamePresetMenu.customHashMap.put(configCreator.getConfigName(), false);
@@ -70,7 +70,7 @@ public class ConfigMenu extends Menu {
                             break;
                         } else if (Objects.equals(e.getCurrentItem(), NO(configCreator))) {
                             ConfigManHunt.resetPreset(p);
-                            if (configCreator.getConfigName().equalsIgnoreCase("ShowAdvancement"))
+                            if (configCreator.getConfigName().equalsIgnoreCase("显示进度"))
                                 ConfigManHunt.ShowAdvancement(true);
                             if (GamePresetMenu.preset.presetName().equalsIgnoreCase(new Custom().presetName()) && GamePresetMenu.customHashMap != null) {
                                 GamePresetMenu.customHashMap.put(configCreator.getConfigName(), true);

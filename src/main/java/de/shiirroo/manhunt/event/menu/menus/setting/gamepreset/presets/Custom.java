@@ -92,18 +92,18 @@ public class Custom extends GamePreset implements Serializable {
     public HashMap<String, Object> makeConfig() {
         if (GamePresetMenu.customHashMap == null) {
             GamePresetMenu.customHashMap = new LinkedHashMap<>();
-            GamePresetMenu.customHashMap.put("HuntStartTime", Config.getHuntStartTime());
-            GamePresetMenu.customHashMap.put("AssassinsInstaKill", Config.getAssassinsInstaKill());
-            GamePresetMenu.customHashMap.put("CompassTracking", Config.getCompassTracking());
-            GamePresetMenu.customHashMap.put("GiveCompass", Config.getGiveCompass());
-            GamePresetMenu.customHashMap.put("CompassParticleToSpeedrunner", Config.getCompassParticleToSpeedrunner());
-            GamePresetMenu.customHashMap.put("FreezeAssassin", Config.getFreezeAssassin());
-            GamePresetMenu.customHashMap.put("ShowAdvancement", Config.getShowAdvancement());
-            GamePresetMenu.customHashMap.put("CompassAutoUpdate", Config.getCompassAutoUpdate());
-            GamePresetMenu.customHashMap.put("CompassTriggerTimer", Config.getCompassTriggerTimer());
-            GamePresetMenu.customHashMap.put("SpeedrunnerOpportunity", Config.getSpeedrunnerOpportunity());
-            GamePresetMenu.customHashMap.put("SpawnPlayerLeaveZombie", Config.getSpawnPlayerLeaveZombie());
-            GamePresetMenu.customHashMap.put("ReadyStartTime", Config.getReadyStartTime());
+            GamePresetMenu.customHashMap.put("猎人等待时间", Config.getHuntStartTime());
+            GamePresetMenu.customHashMap.put("刺客即杀", Config.getAssassinsInstaKill());
+            GamePresetMenu.customHashMap.put("追踪指南针", Config.getCompassTracking());
+            GamePresetMenu.customHashMap.put("发放指南针", Config.getGiveCompass());
+            GamePresetMenu.customHashMap.put("粒子效果追踪", Config.getCompassParticleToSpeedrunner());
+            GamePresetMenu.customHashMap.put("冻结刺客", Config.getFreezeAssassin());
+            GamePresetMenu.customHashMap.put("显示进度", Config.getShowAdvancement());
+            GamePresetMenu.customHashMap.put("指南针自动更新", Config.getCompassAutoUpdate());
+            GamePresetMenu.customHashMap.put("指南针激活间隔", Config.getCompassTriggerTimer());
+            GamePresetMenu.customHashMap.put("速通者几率", Config.getSpeedrunnerOpportunity());
+            GamePresetMenu.customHashMap.put("玩家离开时生成僵尸", Config.getSpawnPlayerLeaveZombie());
+            GamePresetMenu.customHashMap.put("准备时间", Config.getReadyStartTime());
         }
         return GamePresetMenu.customHashMap;
     }

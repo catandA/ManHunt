@@ -63,7 +63,7 @@ public class Default extends GamePreset implements Serializable {
 
     @Override
     public int getSpeedRunnerSize() {
-        long Opportunity = ((((int) makeConfig().get("SpeedrunnerOpportunity")) / 100L) * Bukkit.getOnlinePlayers().stream().filter(e -> !e.getGameMode().equals(GameMode.SPECTATOR)).count());
+        long Opportunity = ((((int) makeConfig().get("速通者几率")) / 100L) * Bukkit.getOnlinePlayers().stream().filter(e -> !e.getGameMode().equals(GameMode.SPECTATOR)).count());
         if (Opportunity <= 1)
             return 1;
         return Math.round(Opportunity) + 1;
@@ -92,18 +92,18 @@ public class Default extends GamePreset implements Serializable {
     @Override
     public HashMap<String, Object> makeConfig() {
         HashMap<String, Object> defaultConfig = new LinkedHashMap<>();
-        defaultConfig.put("HuntStartTime", 120);
-        defaultConfig.put("AssassinsInstaKill", false);
-        defaultConfig.put("CompassTracking", true);
-        defaultConfig.put("GiveCompass", true);
-        defaultConfig.put("CompassParticleToSpeedrunner", false);
-        defaultConfig.put("FreezeAssassin", true);
-        defaultConfig.put("ShowAdvancement", true);
-        defaultConfig.put("CompassAutoUpdate", false);
-        defaultConfig.put("CompassTriggerTimer", 15);
-        defaultConfig.put("SpeedrunnerOpportunity", 40);
-        defaultConfig.put("SpawnPlayerLeaveZombie", false);
-        defaultConfig.put("ReadyStartTime", 15);
+        defaultConfig.put("猎人等待时间", 120);
+        defaultConfig.put("刺客即杀", false);
+        defaultConfig.put("追踪指南针", true);
+        defaultConfig.put("发放指南针", true);
+        defaultConfig.put("粒子效果追踪", false);
+        defaultConfig.put("冻结刺客", true);
+        defaultConfig.put("显示进度", true);
+        defaultConfig.put("指南针自动更新", false);
+        defaultConfig.put("指南针激活间隔", 15);
+        defaultConfig.put("速通者几率", 40);
+        defaultConfig.put("玩家离开时生成僵尸", false);
+        defaultConfig.put("准备时间", 15);
         return defaultConfig;
     }
 }

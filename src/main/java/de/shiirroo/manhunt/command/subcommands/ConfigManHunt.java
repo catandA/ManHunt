@@ -46,7 +46,7 @@ public class ConfigManHunt extends SubCommand {
     public CommandBuilder getSubCommandsArgs(String[] args) {
         configCommand = new CommandBuilder("config", getNeedOp());
         for (ConfigCreator configCreator : ManHuntPlugin.getGameData().getGameConfig().getConfigCreatorsSett()) {
-            if (!configCreator.getConfigName().equalsIgnoreCase("BossbarCompass")) {
+            if (!configCreator.getConfigName().equalsIgnoreCase("BOSS栏指南针")) {
                 CommandBuilder configSetting = new CommandBuilder(configCreator.getConfigName());
                 if (configCreator.getConfigSetting() instanceof Boolean) {
                     configSetting.addSubCommandBuilder(new CommandBuilder("True"));
@@ -96,7 +96,7 @@ public class ConfigManHunt extends SubCommand {
                         GamePresetMenu.customHashMap.put(creator.getConfigName(), b);
                     }
 
-                    if (creator.getConfigName().equalsIgnoreCase("ShowAdvancement")) {
+                    if (creator.getConfigName().equalsIgnoreCase("显示进度")) {
                         ShowAdvancement(b);
                     }
 
@@ -145,27 +145,27 @@ public class ConfigManHunt extends SubCommand {
         String DisplayText = "";
         String addon = "";
         switch (configCreator.getConfigName()) {
-            case "ReadyStartTime" -> {
-                DisplayText = "Ready Time:";
+            case "准备时间" -> {
+                DisplayText = "准备时间:";
                 addon = "s";
             }
-            case "CompassTriggerTimer" -> {
-                DisplayText = "TriggerTime:";
+            case "指南针激活间隔" -> {
+                DisplayText = "激活时间:";
                 addon = "s";
             }
-            case "GameResetTime" -> {
-                DisplayText = "Reset Time:";
+            case "重置时间" -> {
+                DisplayText = "重置时间:";
                 addon = "h";
             }
-            case "HuntStartTime" -> {
-                DisplayText = "Hunt time:";
+            case "猎人等待时间" -> {
+                DisplayText = "狩猎时间:";
                 addon = "s";
             }
-            case "SpeedrunnerOpportunity" -> {
-                DisplayText = "Opportunity:";
+            case "速通者几率" -> {
+                DisplayText = "几率:";
                 addon = "%";
             }
-            case "MaxPlayerSize" -> DisplayText = "MaxPlayers:";
+            case "最大玩家数" -> DisplayText = "最大玩家:";
         }
 
 
@@ -187,7 +187,7 @@ public class ConfigManHunt extends SubCommand {
                                     SettingsMenu.ConfigMenu.get(uuid).setMenuItems();
                                 }
                             }
-                            if (ConfigValue.equalsIgnoreCase("MaxPlayerSize")) {
+                            if (ConfigValue.equalsIgnoreCase("最大玩家数")) {
                                 if (current > input) {
                                     for (int i = Config.getMaxPlayerSize() - input; i < Config.getMaxPlayerSize(); i++) {
                                         Player SpecatorPlayer = Bukkit.getPlayer(ManHuntPlugin.getGameData().getGamePlayer().getPlayers().get(i));
@@ -196,15 +196,15 @@ public class ConfigManHunt extends SubCommand {
                                 }
 
                             }
-                            if (ConfigValue.equalsIgnoreCase("HuntStartTime"))
+                            if (ConfigValue.equalsIgnoreCase("猎人等待时间"))
                                 StartGame.bossBarGameStart.setTime(input);
-                            if (ConfigValue.equalsIgnoreCase("ReadyStartTime"))
+                            if (ConfigValue.equalsIgnoreCase("准备时间"))
                                 Ready.ready.getbossBarCreator().setTime(input);
-                            if (!ConfigValue.equalsIgnoreCase("GameResetTime")) {
+                            if (!ConfigValue.equalsIgnoreCase("重置时间")) {
                                 if (GamePresetMenu.preset.presetName().equalsIgnoreCase(new Custom().presetName()) && GamePresetMenu.customHashMap != null) {
                                     GamePresetMenu.customHashMap.put(ConfigValue, input);
                                 }
-                                if (!ConfigValue.equalsIgnoreCase("MaxPlayerSize")) resetPreset(stateSnapshot.getPlayer());
+                                if (!ConfigValue.equalsIgnoreCase("最大玩家数")) resetPreset(stateSnapshot.getPlayer());
                             }
                             if (SettingsMenu.ConfigMenu != null && SettingsMenu.ConfigMenu.get(stateSnapshot.getPlayer().getUniqueId()) != null)
                                 SettingsMenu.ConfigMenu.get(stateSnapshot.getPlayer().getUniqueId()).open();

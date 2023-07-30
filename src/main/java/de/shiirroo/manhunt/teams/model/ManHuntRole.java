@@ -18,4 +18,14 @@ public enum ManHuntRole {
     public ChatColor getChatColor() {
         return chatColor;
     }
+
+    @Override
+    public String toString() {
+        return switch (this) {
+            case Assassin -> "刺客";
+            case Speedrunner -> "速通者";
+            case Hunter -> "猎人";
+            case Unassigned -> "无业游民";
+        };
+    }
 }

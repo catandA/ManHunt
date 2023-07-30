@@ -31,7 +31,7 @@ public class GameSaveMenu extends Menu {
 
     @Override
     public String getMenuName() {
-        return ChatColor.DARK_GREEN + "Game Save";
+        return ChatColor.DARK_GREEN + "游戏保存";
     }
 
     @Override

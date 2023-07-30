@@ -86,7 +86,7 @@ public class RandomBlocks extends CustomGameMode {
         String s = value.toString().substring(0, 1).toUpperCase() + value.toString().substring(1).toLowerCase();
         meta.setDisplayName(ChatColor.DARK_GRAY + DisplayName() + ChatColor.GRAY + ": " + ((boolean) value ? ChatColor.GREEN : ChatColor.RED) + s);
         meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
-        meta.setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "All dropped blocks,", ChatColor.GRAY + "are created randomly.")));
+        meta.setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "所有掉落的方块都是随机创建的")));
         itemStack.setItemMeta(meta);
         return itemStack;
     }

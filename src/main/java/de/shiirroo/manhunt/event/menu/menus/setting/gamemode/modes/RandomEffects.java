@@ -70,7 +70,7 @@ public class RandomEffects extends CustomGameMode implements Serializable {
                                 s.append(string.substring(0, 1).toUpperCase()).append(string.substring(1).toLowerCase()).append(" ");
                             }
                             player.addPotionEffect(new PotionEffect(potionEffect, time * 20, strength - 1, true, false));
-                            player.sendMessage(ManHuntPlugin.getprefix() + "You have " + ChatColor.GOLD + s + "" + strength + (potionEffect.isInstant() ? "" : ChatColor.GRAY + " for " + ChatColor.GREEN + time + ChatColor.GRAY + " seconds"));
+                            player.sendMessage(ManHuntPlugin.getprefix() + "你拥有了 " + ChatColor.GOLD + s + strength + (potionEffect.isInstant() ? "" : String.valueOf(ChatColor.GREEN) + time + ChatColor.GRAY + " 秒"));
                             break;
                         }
                     }
@@ -86,7 +86,7 @@ public class RandomEffects extends CustomGameMode implements Serializable {
         String s = value.toString().substring(0, 1).toUpperCase() + value.toString().substring(1).toLowerCase();
         meta.setDisplayName(ChatColor.DARK_AQUA + DisplayName() + ChatColor.GRAY + ": " + ((boolean) value ? ChatColor.GREEN : ChatColor.RED) + s);
         meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
-        meta.setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "Every minute each player", ChatColor.GRAY + "gets a random potion effect")));
+        meta.setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "每个玩家每分钟都会获得一种随机的药水效果")));
         potion.setItemMeta(meta);
         return potion;
     }

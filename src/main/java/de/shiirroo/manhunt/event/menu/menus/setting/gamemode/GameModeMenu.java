@@ -27,7 +27,7 @@ public class GameModeMenu extends Menu implements Serializable {
 
     @Override
     public String getMenuName() {
-        return "Game Mode";
+        return "游戏模式";
     }
 
     @Override

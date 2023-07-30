@@ -43,7 +43,7 @@ public class Turtle extends GamePreset implements Serializable {
         ItemStack itemStack = new ItemStack(Material.TURTLE_EGG, 1);
         ItemMeta im = itemStack.getItemMeta();
         im.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + ChatColor.UNDERLINE + "Turtle");
-        List<String> loreString = Lists.newArrayList("", ChatColor.GOLD + "➤ " + ChatColor.GRAY + "Play " + ChatColor.AQUA + "Turtle" + ChatColor.GRAY + " ManHunt mode.",
+        List<String> loreString = Lists.newArrayList("", ChatColor.GOLD + "➤ " + ChatColor.GRAY + "玩" + ChatColor.AQUA + "乌龟" + ChatColor.GRAY + "猎人模式",
                 "", ChatColor.YELLOW + "● " + ChatColor.GOLD + "min. " + (Integer.parseInt(getSpeedRunnersMaxSize())) + " " + ManHuntRole.Speedrunner.getChatColor() + ManHuntRole.Speedrunner,
                 ChatColor.YELLOW + "● " + ChatColor.GOLD + getAssassinMaxSize() + "x " + ManHuntRole.Assassin.getChatColor() + ManHuntRole.Assassin, ChatColor.YELLOW
                         + "● " + ChatColor.GOLD + getHunterMaxSize() + "x " + ManHuntRole.Hunter.getChatColor() + ManHuntRole.Hunter,
@@ -53,7 +53,7 @@ public class Turtle extends GamePreset implements Serializable {
                 (ChatColor.YELLOW + "➢ " + ChatColor.GOLD + s + " : " + (o instanceof Boolean ? ((Boolean) o ? ChatColor.GREEN + o.toString().substring(0, 1).toUpperCase() + o.toString().substring(1) : ChatColor.RED + o.toString().substring(0, 1).toUpperCase() + o.toString().substring(1)) : ChatColor.GREEN + o.toString()))
         ));
         loreString.add(" ");
-        loreString.add(GamePresetMenu.preset.presetName().equalsIgnoreCase(this.getClass().getName()) ? ChatColor.GREEN + "" + ChatColor.BOLD + "⇨ Selected Preset" : ChatColor.DARK_GRAY + "⇨ Select Preset");
+        loreString.add(GamePresetMenu.preset.presetName().equalsIgnoreCase(this.getClass().getName()) ? ChatColor.GREEN + "" + ChatColor.BOLD + "⇨ 已选择预设" : ChatColor.DARK_GRAY + "⇨ 选择预设");
         im.setLore(loreString);
         im.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         itemStack.setItemMeta(im);

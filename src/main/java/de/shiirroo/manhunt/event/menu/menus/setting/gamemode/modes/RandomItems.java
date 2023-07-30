@@ -82,7 +82,7 @@ public class RandomItems extends CustomGameMode {
         meta.setDisplayName(ChatColor.GRAY + DisplayName() + ChatColor.GRAY + ": " + ((boolean) value ? ChatColor.GREEN : ChatColor.RED) + s);
         meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-        meta.setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "All crafted items,", ChatColor.GRAY + "are created randomly.")));
+        meta.setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "所有合成的物品都是随机的")));
         itemStack.setItemMeta(meta);
         return itemStack;
     }

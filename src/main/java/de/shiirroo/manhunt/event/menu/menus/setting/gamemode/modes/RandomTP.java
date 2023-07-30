@@ -101,7 +101,7 @@ public class RandomTP extends CustomGameMode implements Serializable {
         String s = value.toString().substring(0, 1).toUpperCase() + value.toString().substring(1).toLowerCase();
         meta.setDisplayName(ChatColor.DARK_GREEN + DisplayName() + ChatColor.GRAY + ": " + ((boolean) value ? ChatColor.GREEN : ChatColor.RED) + s);
         meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
-        meta.setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "At the start of the game,", ChatColor.GRAY + "all players will be teleported", ChatColor.GRAY + "randomly to a " + ChatColor.GREEN + "500x500" + ChatColor.GRAY + " range.")));
+        meta.setLore(new ArrayList<>(Arrays.asList("", ChatColor.GRAY + "在游戏的一开始, 所有玩家都会随机被传送到一个", ChatColor.GREEN + "500x500" + ChatColor.GRAY + " 的范围里面")));
         itemStack.setItemMeta(meta);
         return itemStack;
     }

@@ -44,15 +44,15 @@ public class Custom extends GamePreset implements Serializable {
     public ItemStack displayItem() {
         ItemStack itemStack = new ItemStack(Material.WRITABLE_BOOK, 1);
         ItemMeta im = itemStack.getItemMeta();
-        im.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + ChatColor.UNDERLINE + "Custom");
-        List<String> loreString = Lists.newArrayList("", ChatColor.GOLD + "➤ " + ChatColor.GRAY + "Play " + ChatColor.GRAY + "Your" + ChatColor.GRAY + " ManHunt mode.",
+        im.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + ChatColor.UNDERLINE + "自定义");
+        List<String> loreString = Lists.newArrayList("", ChatColor.GOLD + "➤ " + ChatColor.GRAY + "玩你自己的猎人游戏模式",
                 "", ChatColor.YELLOW + "● " + ChatColor.GOLD + getSpeedRunnersMaxSize() + "x " + ManHuntRole.Speedrunner.getChatColor() + ManHuntRole.Speedrunner,
                 ChatColor.YELLOW + "● " + ChatColor.GOLD + getAssassinMaxSize() + "x " + ManHuntRole.Assassin.getChatColor() + ManHuntRole.Assassin, ChatColor.YELLOW
                         + "● " + ChatColor.GOLD + getHunterMaxSize() + "x " + ManHuntRole.Hunter.getChatColor() + ManHuntRole.Hunter,
                 "");
-        String s = GamePresetMenu.checkCustom() ? ChatColor.BLUE + "" + ChatColor.BOLD + "⇨ Reload Preset" : ChatColor.GREEN + "" + ChatColor.BOLD + "⇨ Selected Preset";
+        String s = GamePresetMenu.checkCustom() ? ChatColor.BLUE + "" + ChatColor.BOLD + "⇨ 重载预设" : ChatColor.GREEN + "" + ChatColor.BOLD + "⇨ 已选中预设";
 
-        loreString.add(GamePresetMenu.preset.presetName().equalsIgnoreCase(this.getClass().getName()) ? s : ChatColor.DARK_GRAY + "⇨ Select Preset");
+        loreString.add(GamePresetMenu.preset.presetName().equalsIgnoreCase(this.getClass().getName()) ? s : ChatColor.DARK_GRAY + "⇨ 选择预设");
 
         im.setLore(loreString);
         im.addItemFlags(ItemFlag.HIDE_ENCHANTS);

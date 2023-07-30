@@ -43,8 +43,8 @@ public class Default extends GamePreset implements Serializable {
     public ItemStack displayItem() {
         ItemStack itemStack = new ItemStack(Material.BEDROCK, 1);
         ItemMeta im = itemStack.getItemMeta();
-        im.setDisplayName(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + ChatColor.UNDERLINE + "Default");
-        List<String> loreString = Lists.newArrayList("", ChatColor.GOLD + "➤ " + ChatColor.GRAY + "Play " + ChatColor.DARK_GRAY + "Default" + ChatColor.GRAY + " classic ManHunt mode.",
+        im.setDisplayName(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + ChatColor.UNDERLINE + "默认");
+        List<String> loreString = Lists.newArrayList("", ChatColor.GOLD + "➤ " + ChatColor.GRAY + "玩" + ChatColor.DARK_GRAY + "默认的" + ChatColor.GRAY + "经典猎人游戏",
                 "", ChatColor.YELLOW + "● " + ChatColor.GOLD + (Integer.parseInt(getSpeedRunnersMaxSize())) + "x " + ManHuntRole.Speedrunner.getChatColor() + ManHuntRole.Speedrunner,
                 ChatColor.YELLOW + "● " + ChatColor.GOLD + getAssassinMaxSize() + "x " + ManHuntRole.Assassin.getChatColor() + ManHuntRole.Assassin, ChatColor.YELLOW
                         + "● " + ChatColor.GOLD + getHunterMaxSize() + "x " + ManHuntRole.Hunter.getChatColor() + ManHuntRole.Hunter,
@@ -54,7 +54,7 @@ public class Default extends GamePreset implements Serializable {
                 (ChatColor.YELLOW + "➢ " + ChatColor.GOLD + s + " : " + (o instanceof Boolean ? ((Boolean) o ? ChatColor.GREEN + o.toString().substring(0, 1).toUpperCase() + o.toString().substring(1) : ChatColor.RED + o.toString().substring(0, 1).toUpperCase() + o.toString().substring(1)) : ChatColor.GREEN + o.toString()))
         ));
         loreString.add(" ");
-        loreString.add(GamePresetMenu.preset.presetName().equalsIgnoreCase(this.getClass().getName()) ? ChatColor.GREEN + "" + ChatColor.BOLD + "⇨ Selected Preset" : ChatColor.DARK_GRAY + "⇨ Select Preset");
+        loreString.add(GamePresetMenu.preset.presetName().equalsIgnoreCase(this.getClass().getName()) ? ChatColor.GREEN + "" + ChatColor.BOLD + "⇨ 已选择预设" : ChatColor.DARK_GRAY + "⇨ 选择预设");
         im.setLore(loreString);
         im.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         itemStack.setItemMeta(im);

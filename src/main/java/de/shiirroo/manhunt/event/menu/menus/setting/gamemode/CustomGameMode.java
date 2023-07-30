@@ -55,15 +55,15 @@ public abstract class CustomGameMode implements Serializable {
                             for (UUID uuid : SettingsMenu.GameMode.keySet()) {
                                 SettingsMenu.GameMode.get(uuid).setMenuItems();
                             }
-                            stateSnapshot.getPlayer().sendMessage(ManHuntPlugin.getprefix() + ChatColor.GOLD + value + ChatColor.GRAY + " switched to" + " " + ChatColor.GREEN + input + " " + ChatColor.GRAY + addon);
+                            stateSnapshot.getPlayer().sendMessage(ManHuntPlugin.getprefix() + ChatColor.GOLD + value + ChatColor.GRAY + " 切换到" + " " + ChatColor.GREEN + input + " " + ChatColor.GRAY + addon);
                             value = input;
                             if (SettingsMenu.GameMode.get(stateSnapshot.getPlayer().getUniqueId()) != null)
                                 SettingsMenu.GameMode.get(stateSnapshot.getPlayer().getUniqueId()).open();
                             return AnvilGUI.Response.close();
                         }
-                        stateSnapshot.getPlayer().sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "This is an invalid input." + ChatColor.GRAY + " Enter a number between " + ChatColor.GOLD + minValue() + ChatColor.GRAY + " - " + ChatColor.GOLD + maxValue());
+                        stateSnapshot.getPlayer().sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "输入无效" + ChatColor.GRAY + " 输入以下范围的数字 " + ChatColor.GOLD + minValue() + ChatColor.GRAY + " - " + ChatColor.GOLD + maxValue());
                     } else {
-                        stateSnapshot.getPlayer().sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "This is an invalid input");
+                        stateSnapshot.getPlayer().sendMessage(ManHuntPlugin.getprefix() + ChatColor.RED + "输入无效");
                     }
                     return AnvilGUI.Response.text(ChatColor.GRAY + DisplayNameToLong(DisplayName()) + " " + ChatColor.GREEN + value);
                 })

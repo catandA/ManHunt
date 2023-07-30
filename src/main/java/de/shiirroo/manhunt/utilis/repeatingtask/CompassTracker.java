@@ -59,9 +59,9 @@ public class CompassTracker implements Runnable {
                 for (ItemStack it : player.getInventory())
                     if (it != null)
                         if (it.getType().equals(Material.COMPASS))
-                            it.setItemMeta(getCompassMeta(it, player.getLocation().add(new Vector(dx, 0, dz)), ChatColor.RED + "Players have disappeared"));
+                            it.setItemMeta(getCompassMeta(it, player.getLocation().add(new Vector(dx, 0, dz)), ChatColor.RED + "玩家消失了"));
                 if ((Config.getCompassTracking() && player.getGameMode().equals(GameMode.SURVIVAL)) && ManHuntPlugin.getGameData().getGamePlayer().getIsFrozen().entrySet().stream().noneMatch(uuiduuidEntry -> uuiduuidEntry.getValue().equals(player.getUniqueId())) && !ManHuntPlugin.getGameData().getGamePlayer().getPlayerShowGameTimer().contains(player.getUniqueId()))
-                    player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.RED + "Players have disappeared"));
+                    player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.RED + "玩家消失了"));
 
             } else {
                 Player newPlayer = Bukkit.getPlayer(findPlayer.getValue().getPlayerUUID());
@@ -71,14 +71,14 @@ public class CompassTracker implements Runnable {
                     if (location == null) return;
 
                     if ((Config.getCompassTracking() && newPlayer.getGameMode().equals(GameMode.SURVIVAL)) && ManHuntPlugin.getGameData().getGamePlayer().getIsFrozen().entrySet().stream().noneMatch(uuiduuidEntry -> uuiduuidEntry.getValue().equals(player.getUniqueId())) && !ManHuntPlugin.getGameData().getGamePlayer().getPlayerShowGameTimer().contains(player.getUniqueId())) {
-                        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GOLD + "Following : " + ChatColor.DARK_PURPLE + newPlayer.getName()));
+                        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GOLD + "正在追踪 : " + ChatColor.DARK_PURPLE + newPlayer.getName()));
                     }
                     if (cp != null) {
                         if (cp.getWorld() == location.getWorld() && !(cp.getBlockX() == location.getBlockX() && cp.getBlockY() == location.getBlockY() && cp.getBlockZ() == location.getBlockZ()) && Config.getCompassTracking()) {
                             for (ItemStack it : player.getInventory()) {
                                 if (it != null) {
                                     if (it.getType().equals(Material.COMPASS)) {
-                                        it.setItemMeta(getCompassMeta(it, location, ChatColor.GOLD + "Following : " + ChatColor.DARK_PURPLE + newPlayer.getName()));
+                                        it.setItemMeta(getCompassMeta(it, location, ChatColor.GOLD + "正在追踪 : " + ChatColor.DARK_PURPLE + newPlayer.getName()));
                                     }
                                 }
                             }

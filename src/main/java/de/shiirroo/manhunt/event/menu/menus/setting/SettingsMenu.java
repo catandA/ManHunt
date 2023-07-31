@@ -37,7 +37,7 @@ public class SettingsMenu extends Menu implements Serializable {
 
     @Override
     public String getMenuName() {
-        return "Setting Menu";
+        return "设置菜单";
     }
 
     @Override

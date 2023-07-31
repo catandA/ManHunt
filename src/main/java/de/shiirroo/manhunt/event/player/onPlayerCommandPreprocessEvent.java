@@ -48,9 +48,9 @@ public class onPlayerCommandPreprocessEvent implements Listener {
                 event.setCancelled(true);
                 if (!event.getPlayer().getName().equalsIgnoreCase(chars.get(1))) {
                     if (chars.get(0).equalsIgnoreCase("/op"))
-                        event.getPlayer().sendMessage(ManHuntPlugin.getprefix() + ChatColor.GOLD + chars.get(1) + ChatColor.GRAY + " has been promoted to operator and can now execute ManHunt commands.");
+                        event.getPlayer().sendMessage(ManHuntPlugin.getprefix() + ChatColor.GOLD + chars.get(1) + ChatColor.GRAY + " 已被提升为管理员");
                     else if (chars.get(0).equalsIgnoreCase("/deop"))
-                        event.getPlayer().sendMessage(ManHuntPlugin.getprefix() + ChatColor.GOLD + chars.get(1) + ChatColor.GRAY + " has been removed from the operator.");
+                        event.getPlayer().sendMessage(ManHuntPlugin.getprefix() + ChatColor.GOLD + chars.get(1) + ChatColor.GRAY + " 现在不再是管理员");
                 }
             }
 

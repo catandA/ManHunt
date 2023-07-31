@@ -30,7 +30,7 @@ public class SelectGroupMenu extends Menu {
 
     @Override
     public String getMenuName() {
-        return ChatColor.DARK_GRAY + "Join group";
+        return ChatColor.DARK_GRAY + "加入队伍";
     }
 
     @Override
@@ -147,7 +147,7 @@ public class SelectGroupMenu extends Menu {
     private ItemStack setCancel() {
         List<DyeColor> colorSpeedrunner = List.of(DyeColor.RED);
         List<PatternType> patternTypeHSpeedrunner = List.of(PatternType.CROSS);
-        return getItemStackBanner("Leave", Material.BLACK_BANNER, colorSpeedrunner, patternTypeHSpeedrunner, ChatColor.DARK_RED);
+        return getItemStackBanner("离开", Material.BLACK_BANNER, colorSpeedrunner, patternTypeHSpeedrunner, ChatColor.DARK_RED);
     }
 
 }

@@ -43,7 +43,7 @@ public class WorldMenu extends Menu {
 
     @Override
     public String getMenuName() {
-        return "World";
+        return "世界";
     }
 
     @Override
@@ -65,7 +65,7 @@ public class WorldMenu extends Menu {
     public void handleMenuClickEvent(InventoryClickEvent e) throws MenuManagerNotSetupException, MenuManagerException {
         if (getPlayer().isOp() & !ManHuntPlugin.getGameData().getGameStatus().isGame() && Ready.ready != null) {
             if (Objects.equals(e.getCurrentItem(), ResetWorld())) {
-                MenuManager.getMenu(ConfirmationMenu.class, uuid).setName("World Reset?").setBack(true).open();
+                MenuManager.getMenu(ConfirmationMenu.class, uuid).setName("重置世界?").setBack(true).open();
             } else if (Objects.equals(e.getCurrentItem(), SaveGameItem())) {
                 gameSaveMenuHashMap.put(uuid, MenuManager.getMenu(GameSaveMenu.class, uuid).setBack(true).open());
             }
@@ -96,7 +96,7 @@ public class WorldMenu extends Menu {
     private ItemStack ResetWorld() {
         ItemStack GroupMenuGUI = new ItemStack(Material.GRASS_BLOCK);
         ItemMeta im = GroupMenuGUI.getItemMeta();
-        im.setDisplayName(ChatColor.DARK_RED + "Reset World");
+        im.setDisplayName(ChatColor.DARK_RED + "重置世界");
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         GroupMenuGUI.setItemMeta(im);
         return GroupMenuGUI;
@@ -105,7 +105,7 @@ public class WorldMenu extends Menu {
     private ItemStack SaveGameItem() {
         ItemStack GroupMenuGUI = new ItemStack(Material.BOOKSHELF);
         ItemMeta im = GroupMenuGUI.getItemMeta();
-        im.setDisplayName(ChatColor.DARK_GREEN + "Game Saves");
+        im.setDisplayName(ChatColor.DARK_GREEN + "游戏存档");
         im.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         GroupMenuGUI.setItemMeta(im);
         return GroupMenuGUI;

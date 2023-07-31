@@ -184,7 +184,7 @@ public final class ManHuntPlugin extends JavaPlugin implements Serializable {
         Bukkit.getOnlinePlayers().forEach(HumanEntity::closeInventory);
         setGamePresetList();
         checkVersion();
-        Bukkit.getLogger().info(getprefix() + "plugin started.");
+        Bukkit.getLogger().info(getprefix() + "插件启动");
     }
 
     private void checkVersion() {
@@ -203,7 +203,7 @@ public final class ManHuntPlugin extends JavaPlugin implements Serializable {
                     }
                 }
             } catch (IOException e) {
-                Bukkit.getLogger().info(getprefix() + ChatColor.RED + "Something went wrong while check version");
+                Bukkit.getLogger().info(getprefix() + ChatColor.RED + "检查版本更新时出现错误");
             }
         });
     }
@@ -215,9 +215,9 @@ public final class ManHuntPlugin extends JavaPlugin implements Serializable {
         }
         if (gameData.getGameStatus().isGameRunning()) {
             gameData.getGameStatus().getAutoSave().saveGame(true, gameData);
-            Bukkit.getLogger().info(getprefix() + "Game saved automatically.");
+            Bukkit.getLogger().info(getprefix() + "游戏已自动保存");
         }
-        Bukkit.getLogger().info(getprefix() + "plugin stopped.");
+        Bukkit.getLogger().info(getprefix() + "插件已停止");
     }
 
     public void setGamePresetList() {

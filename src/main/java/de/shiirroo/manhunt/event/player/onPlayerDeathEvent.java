@@ -49,7 +49,7 @@ public class onPlayerDeathEvent implements Listener {
         }
 
         if (ManHuntPlugin.getGameData().getPlayerData().getPlayerRoleByUUID(p.getUniqueId()) == ManHuntRole.Assassin || ManHuntPlugin.getGameData().getPlayerData().getPlayerRoleByUUID(p.getUniqueId()) == ManHuntRole.Hunter) {
-            e.setDeathMessage(ManHuntPlugin.getprefix() + ManHuntPlugin.getGameData().getPlayerData().getPlayerRoleByUUID(p.getUniqueId()).getChatColor() + ManHuntPlugin.getGameData().getPlayerData().getPlayerRoleByUUID(p.getUniqueId()) + ChatColor.GRAY + " dies and is immediately back");
+            e.setDeathMessage(ManHuntPlugin.getprefix() + ManHuntPlugin.getGameData().getPlayerData().getPlayerRoleByUUID(p.getUniqueId()).getChatColor() + ManHuntPlugin.getGameData().getPlayerData().getPlayerRoleByUUID(p.getUniqueId()) + ChatColor.GRAY + " 死了，但是他能重生");
             Bukkit.getScheduler().scheduleSyncDelayedTask(ManHuntPlugin.getPlugin(), () -> {
                 if (e.getEntity().isDead()) {
                     e.getEntity().spigot().respawn();
